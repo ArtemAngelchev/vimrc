@@ -2,11 +2,42 @@
 autocmd! bufwritepost _vimrc source %
 
 set nocompatible  " make vim behave equally in graphical mode and console mode
+filetype off
+
+"        Command                            Description
+"
+" PlugInstall [name ...] [#threads] 	Install plugins
+" PlugUpdate [name ...] [#threads] 	Install or update plugins
+" PlugClean[!] 	                        Remove unused directories
+" PlugUpgrade 	                        Upgrade vim-plug itself
+" PlugStatus 	                        Check the status of plugins
+" PlugDiff 	                        Examine changes from the previous update and the pending changes
+" PlugSnapshot[!] [output path] 	Generate script for restoring the current snapshot of the plugins
+call plug#begin('~/vim/vimfiles/bundle')
+  Plug 'zeis/vim-kolor'
+  Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'vim-airline/vim-airline'
+  Plug 'easymotion/vim-easymotion'
+  Plug 'Raimondi/delimitMate'
+  Plug 'ternjs/tern_for_vim'
+  Plug 'tmhedberg/SimpylFold', {'for': 'python'}
+  Plug 'Valloric/YouCompleteMe', {'for': ['java', 'python'], 'do': './vimfiles/bundle/YouCompleteMe/install.py'}
+  Plug 'tpope/vim-fugitive'
+  Plug 'scrooloose/nerdtree' 
+  Plug 'vim-scripts/indentpython.vim'
+  Plug 'mattn/emmet-vim', {'for': ['html', 'htmldjango']}
+  Plug 'artur-shaik/vim-javacomplete2', {'for': 'java'}
+  Plug 'majutsushi/tagbar', {'for': 'python'}
+  Plug 'vim-syntastic/syntastic', {'for': 'python'}
+call plug#end()
 
 set langmenu=en_US
 let $LANG = 'en_US'
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
+
+" Remove toolbar
+set guioptions-=T
 
 set encoding=utf-8
 set fileencoding=utf-8
@@ -18,36 +49,24 @@ filetype plugin on
 filetype indent on
 syntax enable
 
-" Setup Pathogen to manage your plugins
-" mkdir -p ~/vimfiles/autoload ~/.vim/bundle
-" curl -so ~/vimfiles/autoload/pathogen.vim https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim
-" Now you can install any plugin into a vimfiles/bundle/plugin-name/ folder
-call pathogen#infect()
-
 " Search and substitution options
-set hlsearch  " highlight all the results of a particular search
-set incsearch  " start searching immediately (incremental search)
+set hlsearch    " highlight all the results of a particular search
+set incsearch   " start searching immediately (incremental search)
 set ignorecase  " not case sensitive search
-set smartcase  " if in your search's request would Uppercase will search only it
-set gdefault  " global flag default for substitute command
+set smartcase   " if in your search's request would Uppercase will search only it
+set gdefault    " global flag default for substitute command
 
 " Mouse and backspace options
-set mouse=a " on OSX press ALT and click
+set mouse=a                     " on OSX press ALT and click
 set backspace=indent,eol,start  " make backspace behave like normal again
 
-" Real programmers don't use TABs but spaces
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set shiftround
-set expandtab
 
 " Showing line numbers and length
-set number " show line numbers
-set tw=79 " width of document (used by gd)
-set nowrap " don't automatically wrap on load
-set fo-=t " don't automatically wrap text when typing
-set colorcolumn=80
+set number           " show line numbers
+set tw=99            " width of document (used by gd)
+set nowrap           " don't automatically wrap on load
+set fo-=t            " don't automatically wrap text when typing
+set colorcolumn=100
 highlight ColorColumn ctermbg=233
 
 " Split windows options
@@ -55,12 +74,20 @@ set winwidth=86
 set winheight=5
 set winminheight=5
 set winheight=999
-set visualbell  " flash the screen instead of beeping
-set cursorline  " highlight a line where cursor is
+set visualbell      " flash the screen instead of beeping
+set cursorline      " highlight a line where cursor is
 
 " Folding options
-set foldmethod=marker
-set foldmarker=#region,#endregion
+let g:SimpylFold_docstring_preview = 1
+"autocmd BufWinEnter *.py setlocal foldexpr=SimpylFold(v:lnum) foldmethod=expr
+"autocmd BufWinLeave *.py setlocal foldexpr< foldmethod<
+set nofoldenable
+
+
+" To customize indent for a certain file's type go to ./vim80/ftplugin/[file type].vim
+" and put at the bottom line 'setlocal expandtab shiftwidth=2 softtabstop=2'
+set shiftround
+set expandtab
 
 " Better copy & paste
 " When you want to paste large blocks of code into vim, press F2 before you
@@ -74,23 +101,27 @@ set clipboard=unnamed
 let mapleader = ","
 
 " Quicksave command
-noremap <C-Z> :update<CR>
+noremap  <C-Z>      :update<CR>
 vnoremap <C-Z> <C-C>:update<CR>
 inoremap <C-Z> <C-O>:update<CR>
 
 " Quick quit command
 noremap <Leader>e :quit<CR> " Quit current window
-noremap <Leader>E :qa!<CR> " Quit all windows
+noremap <Leader>E :qa!<CR>  " Quit all windows
 
 " bind Ctrl+<movement> keys to move around the windows, instead of using Ctrl+w + <movement>
 " Every unnecessary keystroke that can be saved is good for your health :)
-map <c-j> <c-w>j
-map <c-k> <c-w>k
-map <c-l> <c-w>l
-map <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+noremap  <c-l> <c-w>l
+noremap  <c-h> <c-w>h
 
 "bind Ctrl+o to open all splits window except current
 map <c-o> <c-w>o
+
+"add new line by enter
+map <Enter> o<ESC>
+map <S-Enter> O<ESC>
 
 " easier moving between tabs
 map <Leader>n <esc>:tabprevious<CR>
@@ -98,6 +129,10 @@ map <Leader>m <esc>:tabnext<CR>
 
 " map sort function to a key
 vnoremap <Leader>s :sort<CR>
+
+" easier formatting of paragraphs
+vmap Q gq
+nmap Q gqap
 
 " easier moving of code blocks
 " Try to go into visual mode (v), thenselect several lines of code here and
@@ -111,8 +146,9 @@ autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 au InsertLeave * match ExtraWhitespace /\s\+$/
 
 "Set Color Scheme and Font Options
+"colorscheme camo
 colorscheme kolor
-set guifont=Consolas:h12
+set guifont=Consolas:h11
 
 " Useful settings
 set history=700
@@ -124,79 +160,77 @@ set nobackup
 set nowritebackup
 set noswapfile
 
+"python with virtualenv support
+py << EOF
+import os
+import sys
+import vim
 
-" ============================================================================
-" Python IDE Setup
-" ============================================================================
-" Settings for vim-powerline
-" cd ~/vimfiles/bundle
-" git clone git://github.com/Lokaltog/vim-powerline.git
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+#  sys.path.insert(0, project_base_dir)
+#  activate_this = os.path.join(project_base_dir, 'Scripts/activate_this.py')
+#  execfile(activate_this, dict(__file__=activate_this))
+  python_binary_path = os.path.join(project_base_dir, 'Scripts/python.exe').replace('\\', '/')
+  vim.command('let g:ycm_python_binary_path = "{}"'.format(python_binary_path))
+EOF
+
+" Settings for vim-airline
 set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
 
-" Settings for ctrlp
-" cd ~/.vim/bundle
-" git clone https://github.com/kien/ctrlp.vim.git
-let g:ctrlp_max_height = 30
-set wildignore+=*.pyc
-set wildignore+=*_build/*
-set wildignore+=*/coverage/*
+" Setting for tagbar
+nmap <F8> :TagbarToggle<CR>
+let g:tagbar_ctags_bin = 'C:\Program Files (x86)\ctags58\ctags.exe'
 
-" Settings for python-mode
-" Note: I'm no longer using this. Leave this commented out
-" and uncomment the part about jedi-vim instead
-" cd ~/vimfiles/bundle
-"git clone https://github.com/klen/python-mode
-let g:pymode_virtualenv = 1         " Auto fix vim python paths if virtualenv enabled        
-let g:pymode_folding = 0            " Enable python folding                                 
-let g:pymode_utils_whitespaces = 0  " Do not autoremove unused whitespaces  
-                                
-let g:pymode_syntax = 0                                           
-let g:pymode_lint_ignore = "E265,C0110 Exported"  " ignore pep257 missing docstring warning
-let g:pymode_lint_minheight = 5   " Minimal height of pylint error window          
-let g:pymode_lint_maxheight = 15  " Maximal height of pylint error window 
+" YCM {
+" Navigating through the list of suggestion with ctrl+j and ctrl+k
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_use_ultisnips_completer = 1
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_getdoc_buffer_command = 'vertical-split'
+let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
+map <S-k> :YcmCompleter GetDoc<CR>
+" }
 
-let g:pymode_lint_write = 1  "Pylint checking every save    
+" jedi-vim {
+let g:jedi#auto_initialization = 0
+let g:jedi#completions_enabled = 0
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#smart_auto_mappings = 0
+let g:jedi#popup_on_dot = 0
+let g:jedi#completions_command = ""
+let g:jedi#show_call_signatures = "1"
+let g:jedi#show_call_signatures_delay = 0
+"redefined default configs just to be able see it when i forget something 
+let g:jedi#goto_assignments_command = "<leader>g"
+let g:jedi#goto_definitions_command = "<leader>d"
+let g:jedi#documentation_command = "<S-k>"
+let g:jedi#rename_command = "<leader>r"
+"""call jedi#configure_call_signatures()
+"map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
 
-""let g:pymode_run_key = "<leader>Q"  " default key conflicts with jedi-vim        
-let g:pymode_lint_mccabe_complexity = 10                                        
-let g:pymode_lint_checker = "pyflakes,pep8,pep257,mccabe"                         
-let g:pymode_syntax_highlight_self=0  " do not highlight self                   
+" NerdTree
+map <C-n> :NERDTreeToggle<CR>
+let NERDTreeIgnore = ['\.pyc$']
 
-let g:pymode_doc = 0
-let g:pymode_rope = 0
+" Java 1.8 autocomplition
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
-let g:pymode_run = 1
-let g:pymode_python = "python"
-let g:pymode_run_bind ='<F5>'
+" syntastic
+"" Recommended settings 
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
-" Settings for jedi-vim
-" cd ~/vimfiles/bundle
-" git clone git://github.com/davidhalter/jedi-vim.git
-let g:jedi#usages_command = "<leader>z"
-let g:jedi#popup_on_dot = 1
-let g:jedi#popup_select_first = 0
-let g:jedi#show_call_signatures = 1
-let g:jedi#force_py_version = 2
-""call jedi#configure_call_signatures()
-map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
 
-" Better navigating through omnicomplete option list
-" See http://stackoverflow.com/questions/2170023/how-to-map-keys-for-popup-menu-in-vim
-set completeopt=longest,menuone
-function! OmniPopup(action)
-    if pumvisible()
-        if a:action == 'j'
-            return "\<C-N>"
-        elseif a:action == 'k'
-            return "\<C-P>"
-        endif
-    endif
-    return a:action
-endfunction
-inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
-inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
+"" Display checker-name for that error-message                                  
+let g:syntastic_aggregate_errors = 1        
 
-" Python folding
-" mkdir -p ~/vimfiles/ftplugin
-" wget -O ~/vimfiles/ftplugin/python_editing.vim http://www.vim.org/scripts/download_script.php?src_id=5492
-" set nofoldenable
+"" I use the brew to install flake8                                             
+let g:syntastic_python_checkers=['flake8']
