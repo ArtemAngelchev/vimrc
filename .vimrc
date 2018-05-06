@@ -28,16 +28,17 @@ call plug#begin('~/.vim/plugged')
 Plug 'Raimondi/delimitMate'
 Plug 'godlygeek/tabular'                       " <leader> a
 Plug 'kien/ctrlp.vim'
-Plug 'majutsushi/tagbar'                       " class/module browser
-Plug 'mbbill/undotree'
+Plug 'majutsushi/tagbar'                       " gt
+Plug 'mbbill/undotree'                         " gu
 Plug 'nathanaelkane/vim-indent-guides'         " visual indentation
-Plug 'scrooloose/nerdtree'                     " project and file navigation
+Plug 'scrooloose/nerdtree'                     " go
 Plug 'terryma/vim-multiple-cursors'            " sublimelike multiple cursors
 Plug 'tmhedberg/SimpylFold', {'for': 'python'}
 Plug 'tpope/vim-surround'                      " usage: cs, ds,ys, S
 Plug 'heavenshell/vim-pydocstring'             " gpd
 Plug 'jmcantrell/vim-virtualenv'               " virtualenv support
 Plug 'jlanzarotta/bufexplorer'                 " be, bt, bs, bv
+Plug 'easymotion/vim-easymotion'
 
 "------------------=== code/project navigation ===------------------
 Plug 'Lokaltog/powerline'              " powerline fonts plugin
@@ -331,7 +332,7 @@ let g:jedi#rename_command = "<leader>r"
 " " syntastic
 " "" Recommended settings
 "
-" set statusline+=%{fugitive#statusline()} 
+" set statusline+=%{fugitive#statusline()}
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}P4
 " set statusline+=%*
@@ -359,6 +360,12 @@ nnoremap gm :Merginal<cr>
 ""             pydocstring               ""
 "==========================================
 nmap <silent> gpd <Plug>(pydocstring)
+
+"==========================================
+""              easymotion               ""
+"==========================================
+map  <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
 
 
 "==========================================
