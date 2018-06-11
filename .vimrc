@@ -1,6 +1,7 @@
 " automatic reloading .vimrc
 autocmd! bufwritepost .vimrc source %
 
+set history=500
 set cursorline cul
 set nocompatible
 filetype off
@@ -41,7 +42,6 @@ Plug 'tmhedberg/SimpylFold', {'for': 'python'}
 Plug 'vim-scripts/indentpython.vim', {'for': 'python'}
 Plug 'jmcantrell/vim-virtualenv'               " virtualenv support
 Plug 'rosenfeld/conque-term'                   " consoles as buffers
-" Plug 'Valloric/YouCompleteMe', {'dir': '~/.vim/plugged/YouComleteMe', 'do': 'python2 install.py'}
 
 "------------------===           git           ===------------------
 Plug 'tpope/vim-fugitive'
@@ -60,17 +60,21 @@ call plug#end()
 set encoding=utf-8
 set fileencoding=utf-8
 
-" enable syntax highlighting
+"******************************************
+""     disable backup and swap files     ""
+"******************************************
+set nobackup
+set nowritebackup
+set noswapfile
 
+"******************************************
+""       enable syntax highlighting      ""
+"******************************************
 filetype on
 filetype plugin on
 filetype indent on
 syntax enable
-
-" disable backup and swap files
-set nobackup
-set nowritebackup
-set noswapfile
+set wildmenu
 
 " search and substitution options
 set hlsearch   " highlight all the results of a particular search
@@ -105,7 +109,7 @@ highlight ColorColumn ctermbg=233
 "******************************************
 ""        split windows options          ""
 "******************************************
-set winwidth=86
+set winwidth=87
 set winheight=5
 set winminheight=5
 set winheight=999
@@ -124,11 +128,9 @@ xnoremap p pgvy
 "******************************************
 map <Enter> o<ESC>
 
-" mouse and backspace
-set mouse=a
-set bs=2
-
-" rebind <leader> key
+"******************************************
+""         rebind <leader> key           ""
+"******************************************
 let mapleader=","
 
 "******************************************
@@ -141,7 +143,6 @@ noremap <C-Z> :update<CR>
 vnoremap <C-Z> <Esc>:update<CR>gv
 inoremap <C-Z> <Esc> :update<CR>i
 
-
 "******************************************
 ""        easy split navigations         ""
 "******************************************
@@ -150,15 +151,17 @@ noremap <C-K> <C-W><C-K>
 noremap <c-l> <c-w><C-L>
 noremap <C-H> <C-W><C-H>
 
+"******************************************
+""         easy tab navigations          ""
+"******************************************
+noremap <leader>n <esc> :tabprevious<cr>
+noremap <leader>m <esc> :tabnext<cr>
+
 " easier moving of code blocks
 " Try to go into visual mode (v), thenselect several lines of code here and
 " then press ``>`` several times.
 vnoremap < <gv " better indentation
 vnoremap > >gv " better indentation
-
-" easier moving between tabs
-noremap <leader>n <esc> :tabprevious<cr>
-noremap <leader>m <esc> :tabnext<cr>
 
 " map sort function to a key
 vnoremap <Leader>s :sort<CR>
@@ -174,21 +177,7 @@ noremap Q gq
 "******************************************
 set nofoldenable
 set foldmethod=manual
-
-" "python with virtualenv support
-" py3 << EOF
-" import os
-" import sys
-" import vim
-" 
-" if 'VIRTUAL_ENV' in os.environ:
-"   project_base_dir = os.environ['VIRTUAL_ENV']
-" #  sys.path.insert(0, project_base_dir)
-" #  activate_this = os.path.join(project_base_dir, 'Scripts/activate_this.py')
-" #  execfile(activate_this, dict(__file__=activate_this))
-"   python_binary_path = os.path.join(project_base_dir, 'bin/python').replace('\\', '/')
-"   vim.command('let g:ycm_python_binary_path = "{}"'.format(python_binary_path))
-"   #  vim.command('let g:syntastic_python_pylint_exe="python"')
+set foldlevel=99
 
 "==========================================
 ""         Raimondi/delimitMate          ""
@@ -239,12 +228,16 @@ noremap gt :TagbarToggle<CR>
 "==========================================
 noremap go :NERDTreeToggle<cr>
 
-set noshowmode
+"==========================================
+""          davidhalter/jedi-vim         ""
+"==========================================
 let g:jedi#popup_select_first = 1
 let g:jedi#show_call_signatures = 1
-let g:jedi#smart_auto_mappings = 0
+let g:jedi#smart_auto_mappings = 1
 let g:jedi#show_call_signatures_delay = 100
-" let g:jedi#usages_command = "<leader>u"
+let g:jedi#usages_command = "<leader>u"
+inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "<C-j>"
+inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "<C-k>"
 
 "==========================================
 ""               w0rp/ale                ""
@@ -304,35 +297,28 @@ nnoremap gm :Merginal<cr>
 "==========================================
 ""             pydocstring               ""
 "==========================================
-nmap <silent> gpd <Plug>(pydocstring)
+nnoremap <silent> gpd <Plug>(pydocstring)
 
 "==========================================
 ""              easymotion               ""
 "==========================================
 map  <Leader>f <Plug>(easymotion-bd-f)
-nmap <Leader>f <Plug>(easymotion-overwin-f)
-
+noremap <Leader>f <Plug>(easymotion-overwin-f)
 
 "==========================================
 ""             nerdcomment               ""
 "==========================================
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
-
 " Use compact syntax for prettified multi-line comments
 let g:NERDCompactSexyComs = 1
-
 " Align line-wise comment delimiters flush left instead of following code indentation
 let g:NERDDefaultAlign = 'left'
-
 " Set a language to use its alternate delimiters by default
 let g:NERDAltDelims_java = 1
-
 " Add your own custom formats or override the defaults
 let g:NERDCustomDelimiters = { 'c': { 'left': '"""','right': '"""' } }
-
 " Allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDCommentEmptyLines = 1
-
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
