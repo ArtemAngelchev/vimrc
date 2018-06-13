@@ -1,83 +1,81 @@
 " automatic reloading .vimrc
 autocmd! bufwritepost .vimrc source %
 
-" set guioptions-=m
-nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
-set guioptions-=T
-set guioptions-=r
-set guioptions-=L
-
+set history=500
 set cursorline cul
 set nocompatible
 filetype off
 
-
 "        Command                            Description
 "
-" PlugInstall [name ...] [#threads] 	Install plugins
-" PlugUpdate [name ...] [#threads] 	Install or update plugins
-" PlugClean[!] 	                        Remove unused directories
-" PlugUpgrade 	                        Upgrade vim-plug itself
-" PlugStatus 	                        Check the status of plugins
-" PlugDiff 	                        Examine changes from the previous update and the pending changes
-" PlugSnapshot[!] [output path] 	Generate script for restoring the current snapshot of the plugins
+" PlugInstall [name ...] [#threads] Install plugins
+" PlugUpdate [name ...] [#threads]  Install or update plugins
+" PlugClean[!]                      Remove unused directories
+" PlugUpgrade                       Upgrade vim-plug itself
+" PlugStatus                        Check the status of plugins
+" PlugDiff                          Examine changes from the previous update and the pending changes
+" PlugSnapshot[!] [output path]     Generate script for restoring the current snapshot of the plugins
 
 call plug#begin('~/.vim/plugged')
 
 "------------------=== code/project navigation ===------------------
-Plug 'Raimondi/delimitMate'
-Plug 'godlygeek/tabular'                       " <leader> a
-Plug 'kien/ctrlp.vim'
-Plug 'majutsushi/tagbar'                       " gt
 Plug 'mbbill/undotree'                         " gu
-Plug 'nathanaelkane/vim-indent-guides'         " visual indentation
+Plug 'majutsushi/tagbar'                       " gt
 Plug 'scrooloose/nerdtree'                     " go
+Plug 'easymotion/vim-easymotion'               "
+Plug 'fisadev/FixedTaskList.vim'               "
+Plug 'wesQ3/vim-windowswap'                    " <leader>ww
+Plug 'jeetsukumaran/vim-buffergator'           " leader <b>
+
+"------------------===        formating        ===------------------
+Plug 'Raimondi/delimitMate'
+Plug 'godlygeek/tabular'                       " <leader> a =|:|;|,|etc
 Plug 'terryma/vim-multiple-cursors'            " sublimelike multiple cursors
-Plug 'tmhedberg/SimpylFold', {'for': 'python'}
 Plug 'tpope/vim-surround'                      " usage: cs, ds,ys, S
-Plug 'heavenshell/vim-pydocstring'             " gpd
-Plug 'jmcantrell/vim-virtualenv'               " virtualenv support
-Plug 'jlanzarotta/bufexplorer'                 " be, bt, bs, bv
-Plug 'easymotion/vim-easymotion'
-
-"------------------=== code/project navigation ===------------------
-Plug 'Lokaltog/powerline'              " powerline fonts plugin
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'fisadev/FixedTaskList.vim'       " pending tast list
-Plug 'rosenfeld/conque-term'           " consoles as buffers
-Plug 'michaeljsmith/vim-indent-object' " <count> ai, aI, li, lI
 Plug 'scrooloose/nerdcommenter'
+Plug 'michaeljsmith/vim-indent-object'         " <count> ai, aI, li, lI
 
-Plug 'tmhedberg/SimpylFold', {'for': 'python'}
-Plug 'Valloric/YouCompleteMe', {'dir': '~/.vim/plugged/YouComleteMe', 'do': 'python2 install.py'}
+"------------------===          python         ===------------------
 Plug 'davidhalter/jedi-vim', {'for': 'python'}
+Plug 'heavenshell/vim-pydocstring'             " gpd
+Plug 'tmhedberg/SimpylFold', {'for': 'python'}
+Plug 'vim-scripts/indentpython.vim', {'for': 'python'}
+Plug 'jmcantrell/vim-virtualenv'               " virtualenv support
+Plug 'rosenfeld/conque-term'                   " consoles as buffers
+Plug 'vim-syntastic/syntastic'
+
+"------------------===           git           ===------------------
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'idanarye/vim-merginal'
-Plug 'vim-scripts/indentpython.vim', {'for': 'python'}
-Plug 'vim-syntastic/syntastic'
 Plug 'jreybert/vimagit'
 
+Plug 'rafi/awesome-vim-colorschemes'
+Plug 'Lokaltog/powerline'              " powerline fonts plugin
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'jpo/vim-railscasts-theme'
 Plug 'altercation/vim-colors-solarized'
-
 call plug#end()
 
 set encoding=utf-8
 set fileencoding=utf-8
 
-" enable syntax highlighting
+"******************************************
+""     disable backup and swap files     ""
+"******************************************
+set nobackup
+set nowritebackup
+set noswapfile
 
+"******************************************
+""       enable syntax highlighting      ""
+"******************************************
 filetype on
 filetype plugin on
 filetype indent on
 syntax enable
-
-" disable backup and swap files
-set nobackup
-set nowritebackup
-set noswapfile
+set wildmenu
 
 " search and substitution options
 set hlsearch   " highlight all the results of a particular search
@@ -90,23 +88,29 @@ set gdefault   " global flag default for substitute command
 set mouse=a
 set backspace=indent,eol,start " make backspace behave like normal again
 
-" whitespaces instead of TABs
+"******************************************
+""      whitespaces instead of TABs      ""
+"******************************************
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set shiftround
 set expandtab
 
-" showing line numbers and length
-set number " show lin numbers
+"******************************************
+""       line numbers and length         ""
+"******************************************
+set number " show line numbers
 set tw=79  " width of document (used by gd)
 set nowrap " don't automatically wrap on load
 set fo-=t  " don't automatically wrap text when typing
 set colorcolumn=80
 highlight ColorColumn ctermbg=233
 
-" split windows options
-set winwidth=86
+"******************************************
+""        split windows options          ""
+"******************************************
+set winwidth=87
 set winheight=5
 set winminheight=5
 set winheight=999
@@ -120,36 +124,39 @@ set clipboard=unnamedplus
 " paste multiple times
 xnoremap p pgvy
 
-"add new line by enter
+"******************************************
+""       add new line with enter         ""
+"******************************************
 map <Enter> o<ESC>
-map <S-Enter> O<ESC>
 
-" mouse and backspace
-set mouse=a
-set bs=2
-
-" rebind <leader> key
+"******************************************
+""         rebind <leader> key           ""
+"******************************************
 let mapleader=","
 
-" quicksave command
-noremap <c-z> :update<cr>
-vnoremap <c-z> <c-c> :update<cr>
-inoremap <c-z> <c-o> :update<cr>
+"******************************************
+""         quick exit and save           ""
+"******************************************
+noremap <leader>e :q<CR>
+noremap <leader>E :qa!<CR>
 
-" bind nohl
-" noremap  <c-n> :nohl<cr>
-" vnoremap <c-n> :nohl<cr>
-" inoremap <c-n> :nohl<cr>
+noremap <C-Z> :update<CR>
+vnoremap <C-Z> <Esc>:update<CR>gv
+inoremap <C-Z> <Esc> :update<CR>i
 
-" quick quit command
-noremap <leader>e :quit<cr>
-noremap <leader>E :qa!<cr>
+"******************************************
+""        easy split navigations         ""
+"******************************************
+noremap <C-J> <C-W><C-J>
+noremap <C-K> <C-W><C-K>
+noremap <c-l> <c-w><C-L>
+noremap <C-H> <C-W><C-H>
 
-" easier movement between splitted windows
-noremap <c-j> <c-w>j
-noremap <c-k> <c-w>k
-noremap <c-l> <c-w>l
-noremap <c-h> <c-w>h
+"******************************************
+""         easy tab navigations          ""
+"******************************************
+noremap <leader>n <esc> :tabprevious<cr>
+noremap <leader>m <esc> :tabnext<cr>
 
 " easier moving of code blocks
 " Try to go into visual mode (v), thenselect several lines of code here and
@@ -157,55 +164,109 @@ noremap <c-h> <c-w>h
 vnoremap < <gv " better indentation
 vnoremap > >gv " better indentation
 
-" easier moving between tabs
-noremap <leader>n <esc> :tabprevious<cr>
-noremap <leader>m <esc> :tabnext<cr>
-
 " map sort function to a key
 vnoremap <Leader>s :sort<CR>
 
-" easier formatting of paragraphs
-vmap Q gq
-nmap Q gqap
+"******************************************
+""    easier formatting of paragraphs    ""
+"******************************************
+vnoremap Q gq
+noremap Q gq
 
-"python with virtualenv support
-py3 << EOF
-import os
-import sys
-import vim
-
-if 'VIRTUAL_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-#  sys.path.insert(0, project_base_dir)
-#  activate_this = os.path.join(project_base_dir, 'Scripts/activate_this.py')
-#  execfile(activate_this, dict(__file__=activate_this))
-  python_binary_path = os.path.join(project_base_dir, 'bin/python').replace('\\', '/')
-  vim.command('let g:ycm_python_binary_path = "{}"'.format(python_binary_path))
-  #  vim.command('let g:syntastic_python_pylint_exe="python"')
-EOF
-
-"==========================================
-""             ctrlp settings            ""
-"==========================================
-let g:ctrlp_max_height=30
-set wildignore+=*.pyc
-set wildignore+=*._build/*
-set wildignore+=*/coverage/*
-
-
-"==========================================
+"******************************************
 ""            folding options            ""
-"==========================================
-let g:SimpylFold_docstring_preview = 1
+"******************************************
 set nofoldenable
 set foldmethod=manual
-
+set foldlevel=99
 
 "==========================================
-""        vim-indent-guides              ""
+""         Raimondi/delimitMate          ""
 "==========================================
-let g:indent_guides_enable_on_vim_startup = 0
+let g:delimitMate_expand_space = 1
+let g:delimitMate_expand_inside_quotes = 1
+let g:delimitMate_expand_cr = 2
+let g:delimitMate_nesting_quotes = ['"','`']
 
+"==========================================
+""            mbbill/undotree            ""
+"==========================================
+nnoremap gu :UndotreeToggle<cr>
+let g:undotree_CustomUndotreeCmd = 'vertical 32 new'
+let g:undotree_CustomDiffpanelCmd = 'belowright 12 new'
+let g:undotree_SetFocusWhenToggle = 1
+let g:undotree_ShortIndicators = 1
+try
+    set undodir=~/.vim/.undodir/
+    set undofile
+catch
+endtry
+
+"==========================================
+""           godlygeek/tabular           ""
+"==========================================
+noremap <Leader>a= :Tabularize /=<CR>
+vnoremap <Leader>a= :Tabularize /=<CR>
+noremap <Leader>a; :Tabularize /:\zs<CR>
+vnoremap <Leader>a; :Tabularize /:\zs<CR>
+noremap <Leader>a: :Tabularize /:<CR>
+vnoremap <Leader>a: :Tabularize /:<CR>
+noremap <Leader>a, :Tabularize /,\zs<CR>
+vnoremap <Leader>a, :Tabularize /,\zs<CR>
+noremap <Leader>a" :Tabularize /"<CR>
+vnoremap <Leader>a" :Tabularize /"<CR>
+
+"==========================================
+""           majutsushi/tagbar           ""
+"==========================================
+let g:tagbar_autopreview = 1
+let g:tagbar_autoclose = 1
+let g:tagbar_show_linenumbers = 0
+noremap gt :TagbarToggle<CR>
+
+"==========================================
+""          scrooloose/nerdtree          ""
+"==========================================
+noremap go :NERDTreeToggle<cr>
+
+"==========================================
+""          davidhalter/jedi-vim         ""
+"==========================================
+let g:jedi#popup_select_first = 1
+let g:jedi#show_call_signatures = 1
+let g:jedi#smart_auto_mappings = 1
+let g:jedi#show_call_signatures_delay = 100
+let g:jedi#usages_command = "<leader>u"
+inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "<C-j>"
+inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "<C-k>"
+
+"==========================================
+""               syntastic               ""
+"==========================================
+
+noremap <c-[> :lp<cr>
+noremap <c-]> :lne<cr>
+
+" syntastic
+"" Recommended settings
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_mode_map={'mode': 'passive'}
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_warning_symbol = 'WW'
+
+silent! command Et SyntasticToggleMode
+silent! command Ef SyntasticCheck
+
+"" I use the brew to install flake8
+let g:syntastic_python_checkers=['flake8', 'pylint']
 
 "==========================================
 ""         set colorscheme               ""
@@ -214,14 +275,11 @@ let g:indent_guides_enable_on_vim_startup = 0
 " MUST be inserted BEFORE the colorscheme command
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 au InsertLeave * match ExtraWhitespace /\s\+$/
-
-let g:solarized_termcolors=256
-set background=dark
-colorscheme solarized
+"
+colorscheme deus
 
 highlight multiple_cursors_cursor term=reverse cterm=reverse gui=reverse
 highlight link multiple_cursors_visual Visual
-
 
 "==========================================
 ""           airline settings            ""
@@ -234,42 +292,9 @@ let g:airline_right_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_left_alt_sep= ''
 let g:airline_left_sep = ''
-" let g:airline#extensions#tabline#left_sep = '>>'
-" let g:airline#extensions#tabline#left_sep = ' '
-" let g:airline#extensions#tabline#left_alt_sep = ' | '
-" let g:airline#extensions#tabline#formatter='unique_tail'
 let g:airline_powerline_fonts=1
 
 set selection=inclusive
-
-" nerdtree bindings
-noremap go :NERDTreeToggle<cr>
-
-" tagbar bindings
-noremap gt :TagbarToggle<cr>
-
-
-"==========================================
-""              undo tree                ""
-"==========================================
-nnoremap gu :UndotreeToggle<cr> 
-
-
-"==========================================
-""               tabular                 ""
-"==========================================
-if exists(":Tabularize")
-    nmap <Leader>a= :Tabularize /=<CR>
-    vmap <Leader>a= :Tabularize /=<CR>
-    nmap <Leader>a; :Tabularize /:\zs<CR>
-    vmap <Leader>a; :Tabularize /:\zs<CR>
-    nmap <Leader>a: :Tabularize /:<CR>
-    vmap <Leader>a: :Tabularize /:<CR>
-    nmap <Leader>a, :Tabularize /,\zs<CR>
-    vmap <Leader>a, :Tabularize /,\zs<CR>
-    nmap <Leader>a" :Tabularize /"<CR>
-    vmap <Leader>a" :Tabularize /"<CR>
-endif
 
 "==========================================
 ""       conque-term settings            ""
@@ -281,77 +306,6 @@ noremap gv :ConqueTermVSplit bash<cr>
 noremap gs :ConqueTermSplit bash<cr>
 
 "==========================================
-""               YCM settings            ""
-"==========================================
-" MUST to set noshowmode for jedy-vim show signature
-set noshowmode
-
-" YCM {
-" Navigating through the list of suggestion with ctrl+j and ctrl+k
-" let g:ycm_show_diagnostics_ui = 1
-" let g:ycm_always_populate_location_list = 1
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
-" let g:ycm_use_ultisnips_completer = 1
-let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_getdoc_buffer_command = 'vertical-split'
-let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
-let g:ycm_error_symbol = '>>'
-let g:ycm_warning_symbol = '>*'
-nnoremap <leader>d :YcmCompleter GoTo<CR>
-map <S-k> :YcmCompleter GetDoc<CR>
-" }
-
-" " jedi-vim {P>
-let g:jedi#auto_initialization = 1
-let g:jedi#completions_enabled = 0
-let g:jedi#auto_vim_configuration = 1
-let g:jedi#smart_auto_mappings = 1
-let g:jedi#popup_on_dot = 0
-" " let g:jedi#completions_command = ""
-let g:jedi#show_call_signatures = 1
-let g:jedi#show_call_signatures_delay = 0
-" " redefined default configs just to be able see it when i forget something
-" let g:jedi#goto_assignments_command = "<leader>g"
-" let g:jedi#goto_definitions_command = "<leader>d"
-let g:jedi#rename_command = "<leader>r"
-" let g:jedi#usages_command = "<leader>u"
-" call jedi#configure_call_signatures()
-" map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
-
-
-"==========================================
-""               syntastic               ""
-"==========================================
-
-" noremap <c-[> :lp<cr>
-" noremap <c-]> :lne<cr>
-"
-" " syntastic
-" "" Recommended settings
-"
-" set statusline+=%{fugitive#statusline()}
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}P4
-" set statusline+=%*
-"
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-"
-silent! command Et SyntasticToggleMode
-silent! command Ef SyntasticCheck
-"
-"
-" "" I use the brew to install flake8
-" let g:syntastic_python_checkers=['flake8']
-
-
-"==========================================
 ""               merginal                ""
 "==========================================
 nnoremap gm :Merginal<cr>
@@ -359,35 +313,28 @@ nnoremap gm :Merginal<cr>
 "==========================================
 ""             pydocstring               ""
 "==========================================
-nmap <silent> gpd <Plug>(pydocstring)
+nnoremap <silent> gpd <Plug>(pydocstring)
 
 "==========================================
 ""              easymotion               ""
 "==========================================
 map  <Leader>f <Plug>(easymotion-bd-f)
-nmap <Leader>f <Plug>(easymotion-overwin-f)
-
+noremap <Leader>f <Plug>(easymotion-overwin-f)
 
 "==========================================
 ""             nerdcomment               ""
 "==========================================
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
-
 " Use compact syntax for prettified multi-line comments
 let g:NERDCompactSexyComs = 1
-
 " Align line-wise comment delimiters flush left instead of following code indentation
 let g:NERDDefaultAlign = 'left'
-
 " Set a language to use its alternate delimiters by default
 let g:NERDAltDelims_java = 1
-
 " Add your own custom formats or override the defaults
 let g:NERDCustomDelimiters = { 'c': { 'left': '"""','right': '"""' } }
-
 " Allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDCommentEmptyLines = 1
-
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
