@@ -22,9 +22,10 @@ call plug#begin('~/.vim/plugged')
 Plug 'mbbill/undotree'                         " gu
 Plug 'majutsushi/tagbar'                       " gt
 Plug 'scrooloose/nerdtree'                     " go
-Plug 'easymotion/vim-easymotion'
-Plug 'jlanzarotta/bufexplorer'                 " be, bt, bs, bv
+Plug 'easymotion/vim-easymotion'               "
 Plug 'fisadev/FixedTaskList.vim'               "
+Plug 'wesQ3/vim-windowswap'                    " <leader>ww
+Plug 'jeetsukumaran/vim-buffergator'           " leader <b>
 
 "------------------===        formating        ===------------------
 Plug 'Raimondi/delimitMate'
@@ -304,6 +305,17 @@ nnoremap <silent> gpd <Plug>(pydocstring)
 "==========================================
 map  <Leader>f <Plug>(easymotion-bd-f)
 noremap <Leader>f <Plug>(easymotion-overwin-f)
+
+" s{char}{char} to move to {char}{char}
+nmap s <Plug>(easymotion-overwin-f2)
+
+" Move to line
+map <Leader>L <Plug>(easymotion-bd-jk)
+noremap <Leader>L <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+noremap <Leader>w <Plug>(easymotion-overwin-w)
 
 "==========================================
 ""             nerdcomment               ""
