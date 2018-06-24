@@ -38,6 +38,7 @@ Plug 'michaeljsmith/vim-indent-object'         " <count> ai, aI, li, lI
 "------------------===          python         ===------------------
 Plug 'w0rp/ale'
 Plug 'davidhalter/jedi-vim', {'for': 'python'}
+Plug 'maralla/completor.vim'
 Plug 'heavenshell/vim-pydocstring'             " gpd
 Plug 'tmhedberg/SimpylFold', {'for': 'python'}
 Plug 'vim-scripts/indentpython.vim', {'for': 'python'}
@@ -232,13 +233,24 @@ noremap go :NERDTreeToggle<cr>
 "==========================================
 ""          davidhalter/jedi-vim         ""
 "==========================================
-let g:jedi#popup_select_first = 1
+let g:jedi#completion_enabled = 0
+let g:jedi#auto_vim_configuration = 0
 let g:jedi#show_call_signatures = 1
-let g:jedi#smart_auto_mappings = 1
+let g:jedi#smart_auto_mappings = 0
 let g:jedi#show_call_signatures_delay = 100
 let g:jedi#usages_command = "<leader>u"
-inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "<C-j>"
-inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "<C-k>"
+" inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "<C-j>"
+" inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "<C-k>"
+
+"==========================================
+""         maralla/completor.vim         ""
+"==========================================
+let g:completor_python_binary = '/usr/local/bin/python3.6'
+inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-h>"
+inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
+inoremap <expr> <CR> pumvisible() ? "\<C-y>\<CR>" : "\<CR>"
+let g:completor_auto_trigger = 0
+inoremap <expr> <C-@> pumvisible() ? "<C-N>" : "<C-R>=completor#do('complete')<CR>"
 
 "==========================================
 ""               w0rp/ale                ""
