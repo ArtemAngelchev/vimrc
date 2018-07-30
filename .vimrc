@@ -37,11 +37,11 @@ Plug 'michaeljsmith/vim-indent-object'         " <count> ai, aI, li, lI
 
 "------------------===          python         ===------------------
 Plug 'w0rp/ale'
-Plug 'davidhalter/jedi-vim', {'for': 'python'}
+" Plug 'davidhalter/jedi-vim', {'for': 'python'}
 Plug 'maralla/completor.vim'
 Plug 'heavenshell/vim-pydocstring'             " gpd
-Plug 'tmhedberg/SimpylFold', {'for': 'python'}
-Plug 'vim-scripts/indentpython.vim', {'for': 'python'}
+Plug 'tmhedberg/SimpylFold'
+Plug 'vim-scripts/indentpython.vim'
 Plug 'jmcantrell/vim-virtualenv'               " virtualenv support
 Plug 'rosenfeld/conque-term'                   " consoles as buffers
 
@@ -264,6 +264,7 @@ let g:ale_echo_msg_format = '%severity%|%linter%|%code%: %s'
 let g:ale_sign_error = '>'
 let g:ale_sign_warning = '!'
 let g:ale_sign_column_always = 1
+let g:ale_lint_delay = 2000
 
 "==========================================
 ""         set colorscheme               ""
@@ -316,18 +317,18 @@ nnoremap <silent> gpd <Plug>(pydocstring)
 ""              easymotion               ""
 "==========================================
 map  <Leader>f <Plug>(easymotion-bd-f)
-noremap <Leader>f <Plug>(easymotion-overwin-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
 
 " s{char}{char} to move to {char}{char}
 nmap s <Plug>(easymotion-overwin-f2)
 
 " Move to line
 map <Leader>L <Plug>(easymotion-bd-jk)
-noremap <Leader>L <Plug>(easymotion-overwin-line)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
 
 " Move to word
 map  <Leader>w <Plug>(easymotion-bd-w)
-noremap <Leader>w <Plug>(easymotion-overwin-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
 
 "==========================================
 ""             nerdcomment               ""
