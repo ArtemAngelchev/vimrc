@@ -36,13 +36,14 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'michaeljsmith/vim-indent-object'         " <count> ai, aI, li, lI
 
 "------------------===          python         ===------------------
-Plug 'davidhalter/jedi-vim', {'for': 'python'}
+Plug 'w0rp/ale'
+" Plug 'davidhalter/jedi-vim', {'for': 'python'}
+Plug 'maralla/completor.vim'
 Plug 'heavenshell/vim-pydocstring'             " gpd
-Plug 'tmhedberg/SimpylFold', {'for': 'python'}
-Plug 'vim-scripts/indentpython.vim', {'for': 'python'}
+Plug 'tmhedberg/SimpylFold'
+Plug 'vim-scripts/indentpython.vim'
 Plug 'jmcantrell/vim-virtualenv'               " virtualenv support
 Plug 'rosenfeld/conque-term'                   " consoles as buffers
-Plug 'vim-syntastic/syntastic'
 
 "------------------===           git           ===------------------
 Plug 'tpope/vim-fugitive'
@@ -191,7 +192,8 @@ let g:delimitMate_nesting_quotes = ['"','`']
 "==========================================
 ""            mbbill/undotree            ""
 "==========================================
-nnoremap gu :UndotreeToggle<cr>
+nnoremap gu :UndotreeToggle<cr> 
+
 let g:undotree_CustomUndotreeCmd = 'vertical 32 new'
 let g:undotree_CustomDiffpanelCmd = 'belowright 12 new'
 let g:undotree_SetFocusWhenToggle = 1
@@ -232,41 +234,38 @@ noremap go :NERDTreeToggle<cr>
 "==========================================
 ""          davidhalter/jedi-vim         ""
 "==========================================
-let g:jedi#popup_select_first = 1
+let g:jedi#completion_enabled = 0
+let g:jedi#auto_vim_configuration = 0
 let g:jedi#show_call_signatures = 1
-let g:jedi#smart_auto_mappings = 1
+let g:jedi#smart_auto_mappings = 0
 let g:jedi#show_call_signatures_delay = 100
 let g:jedi#usages_command = "<leader>u"
-inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "<C-j>"
-inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "<C-k>"
+" inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "<C-j>"
+" inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "<C-k>"
 
 "==========================================
-""               syntastic               ""
+""         maralla/completor.vim         ""
 "==========================================
+let g:completor_python_binary = '/usr/local/bin/python3.6'
+inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-h>"
+inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
+inoremap <expr> <CR> pumvisible() ? "\<C-y>\<CR>" : "\<CR>"
+let g:completor_auto_trigger = 0
+inoremap <expr> <C-@> pumvisible() ? "<C-N>" : "<C-R>=completor#do('complete')<CR>"
 
-noremap <c-[> :lp<cr>
-noremap <c-]> :lne<cr>
-
-" syntastic
-"" Recommended settings
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_mode_map={'mode': 'passive'}
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_warning_symbol = 'WW'
-
-silent! command Et SyntasticToggleMode
-silent! command Ef SyntasticCheck
-
-"" I use the brew to install flake8
-let g:syntastic_python_checkers=['flake8', 'pylint']
+"==========================================
+""               w0rp/ale                ""
+"==========================================
+let g:ale_linters = {'python': ['flake8', 'pylint']}
+let g:ale_python_pylint_options = '--disable=missing-docstring'
+let g:ale_fixers = {'python': ['isort']}
+noremap <leader>i :ALEFix isort<CR>
+let g:ale_change_sign_column_color = 1
+let g:ale_echo_msg_format = '%severity%|%linter%|%code%: %s'
+let g:ale_sign_error = '>'
+let g:ale_sign_warning = '!'
+let g:ale_sign_column_always = 1
+let g:ale_lint_delay = 2000
 
 "==========================================
 ""         set colorscheme               ""
@@ -319,7 +318,18 @@ nnoremap <silent> gpd <Plug>(pydocstring)
 ""              easymotion               ""
 "==========================================
 map  <Leader>f <Plug>(easymotion-bd-f)
-noremap <Leader>f <Plug>(easymotion-overwin-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+
+" s{char}{char} to move to {char}{char}
+nmap s <Plug>(easymotion-overwin-f2)
+
+" Move to line
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
 
 "==========================================
 ""             nerdcomment               ""
