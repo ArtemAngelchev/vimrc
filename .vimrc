@@ -38,7 +38,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-commentary'
 
 Plug 'w0rp/ale'
-Plug 'maralla/completor.vim'
+Plug 'maralla/completor.vim', {'for': 'python'}
 Plug 'davidhalter/jedi-vim'
 
 call plug#end()
@@ -47,7 +47,7 @@ syntax enable
 filetype on
 
 source ~/.vim/vimrc/basic.vim
-" source ~/.vim/vimrc/filetypes.vim
+source ~/.vim/vimrc/filetypes.vim
 source ~/.vim/vimrc/plugins_config.vim
 
 " Don't automatically wrap on load

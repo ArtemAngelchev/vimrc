@@ -48,7 +48,7 @@ set hid          " a buffer becomes hidden when it is abandoned
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
-set whichwrap+=<,>,h,l
+set whichwrap+=<,>
 
 set ignorecase " ignore case when searching
 set smartcase  " when searching try to be smart about cases

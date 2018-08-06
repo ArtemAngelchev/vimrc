@@ -7,5 +7,11 @@
 <space> ------ seach
 <leader><cr> - disable highlight
 <leader>u ---- undo tree
+<leader>U ---- usage
 <leader><cr> - :nohl
 <leader>a ---- :Ack
+<leader>ss --- turn on spell check
+<leader>sn --- go to the next spell option
+<leader>sp --- go to the previous spell option
+<leader>sa --- add to the spell dict
+<leader>s? --- togle spell options

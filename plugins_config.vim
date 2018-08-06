@@ -246,7 +246,7 @@ let g:jedi#auto_vim_configuration = 0
 let g:jedi#show_call_signatures = 1
 let g:jedi#smart_auto_mappings = 0
 let g:jedi#show_call_signatures_delay = 100
-let g:jedi#usages_command = "<leader>u"
+let g:jedi#usages_command = "<leader>U"
 
 
 py3 << EOF
@@ -254,9 +254,9 @@ import os
 if 'VIRTUAL_ENV' in os.environ:
   project_base_dir = os.environ['VIRTUAL_ENV']
   sys.path.insert(0, project_base_dir)
-  python_binary_path = os.path.join(project_base_dir, 'bin/python').replace('\\', '/')
-  vim.command(f'let g:completor_python_binary = "{python_binary_path}"')
-  #  vim.command('let g:syntastic_python_pylint_exe="python"')
+  python_binary_path = os.path.join(project_base_dir, 'bin/python')
+  python_binary_path = python_binary_path.replace('\\', '/')
+  vim.command('let g:completor_python_binary = "{}"'.format(python_binary_path))
 EOF
 
 
@@ -264,9 +264,9 @@ EOF
 " => completor.vim
 "==========================================
 " let g:completor_python_binary = '/usr/local/bin/python3.6'
-inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-h>"
-inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
-inoremap <expr> <CR> pumvisible() ? "\<C-y>\<CR>" : "\<CR>"
+inoremap <expr> <c-j> pumvisible() ? "\<c-n>" : "\<C-h>"
+inoremap <expr> <c-k> pumvisible() ? "\<c-p>" : "\<C-k>"
+inoremap <expr> <cr> pumvisible() ? "\<c-y>\<cr>" : "\<cr>"
 let g:completor_auto_trigger = 0
-" inoremap <expr> <C-@> pumvisible() ? "<C-N>" : "<C-R>=completor#do('complete')<CR>"
+inoremap <expr> <c-@> pumvisible() ? "<c-N>" : "<c-r>=completor#do('complete')<cr>"
 let g:completor_whitelist = ['python']
