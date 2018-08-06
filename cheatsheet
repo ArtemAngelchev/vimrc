@@ -1,0 +1,11 @@
+<leader>e ---- close file
+<leader>E ---- close unsaved file
+<leader>w ---- save file
+<c-z> -------- update file
+<leader>z ---- zen mode
+<leader>ww --- swap windows
+<space> ------ seach
+<leader><cr> - disable highlight
+<leader>u ---- undo tree
+<leader><cr> - :nohl
+<leader>a ---- :Ack
