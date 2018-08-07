@@ -15,3 +15,9 @@
 <leader>sp --- go to the previous spell option
 <leader>sa --- add to the spell dict
 <leader>s? --- togle spell options
+gk ----------- expand selected region
+gj ----------- shrink selected region
+<count>ai ---- an indentation level and line above.
+<count>ii ---- inner indentation level (no line above).
+<count>aI ---- an indentation level and lines above/below.
+<count>iI ---- inner indentation level (no lines above/below).

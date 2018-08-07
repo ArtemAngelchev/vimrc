@@ -37,9 +37,17 @@ Plug 'mileszs/ack.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-commentary'
 
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'terryma/vim-expand-region'
+Plug 'terryma/vim-multiple-cursors'
+
 Plug 'w0rp/ale'
 Plug 'maralla/completor.vim', {'for': 'python'}
 Plug 'davidhalter/jedi-vim'
+
+Plug 'tpope/vim-fugitive'
+Plug 'idanarye/vim-merginal'
+Plug 'jreybert/vimagit'
 
 call plug#end()
 

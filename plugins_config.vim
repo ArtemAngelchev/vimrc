@@ -270,3 +270,16 @@ inoremap <expr> <cr> pumvisible() ? "\<c-y>\<cr>" : "\<cr>"
 let g:completor_auto_trigger = 0
 inoremap <expr> <c-@> pumvisible() ? "<c-N>" : "<c-r>=completor#do('complete')<cr>"
 let g:completor_whitelist = ['python']
+
+
+"==========================================
+" => vim-expand-region
+"==========================================
+map gk <Plug>(expand_region_expand)
+map gj <Plug>(expand_region_shrink)
+
+
+"==========================================
+""               merginal                ""
+"==========================================
+nnoremap <leader>m :Merginal<cr>

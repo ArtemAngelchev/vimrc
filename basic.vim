@@ -135,11 +135,22 @@ map <c-l> <c-w>l
 set winwidth=90
 set wmw=20
 
+" easier moving of code blocks
+vnoremap < <gv
+vnoremap > >gv
+
+" folding options
+set nofoldenable
+set foldmethod=manual
+set foldlevel=99
+
 " Useful mappings for managing tabs
 noremap <leader>to :tabnew<cr>
 noremap <leader>tn :tabn<cr>
 noremap <leader>tp :tabp<cr>
 noremap <leader>tm :tabmove<cr>
+
+map <leader>pp :setlocal paste!<cr>
 
 " Return to last edit position when opening files (You want this!)
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
