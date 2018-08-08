@@ -48,6 +48,7 @@ Plug 'davidhalter/jedi-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'idanarye/vim-merginal'
 Plug 'jreybert/vimagit'
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
@@ -65,3 +66,5 @@ set guioptions-=r
 set guioptions-=R
 set guioptions-=l
 set guioptions-=L
+
+set gfn=IBM\ Plex\ Mono:h14,:Hack\ 14,Source\ Code\ Pro\ 12,Bitstream\ Vera\ Sans\ Mono\ 11
