@@ -77,7 +77,7 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Renamed"   : "r",
     \ "Unmerged"  : "u",
     \ "Deleted"   : "d",
-    \ "Dirty"     : "f",
+    \ "Dirty"     : "~",
     \ "Clean"     : "ok",
     \ 'Ignored'   : "i",
     \ "Unknown"   : "?"
@@ -235,7 +235,7 @@ let g:ale_lint_on_enter = 0
 " => Git gutter (Git diff)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:gitgutter_enabled=0
-nnoremap <silent> <leader>d :GitGutterToggle<cr>
+nnoremap <silent> <leader>` :GitGutterToggle<cr>
 
 
 "==========================================
