@@ -269,7 +269,7 @@ inoremap <expr> <c-k> pumvisible() ? "\<c-p>" : "\<C-k>"
 inoremap <expr> <cr> pumvisible() ? "\<c-y>\<cr>" : "\<cr>"
 let g:completor_auto_trigger = 0
 inoremap <expr> <c-@> pumvisible() ? "<c-N>" : "<c-r>=completor#do('complete')<cr>"
-let g:completor_whitelist = ['python']
+" let g:completor_whitelist = ['python']
 
 
 "==========================================
