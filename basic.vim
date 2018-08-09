@@ -200,8 +200,20 @@ map <leader>s? z=
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => JSON formating
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <leader><space> :call PrettifyJSON()<cr>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Format json
+function! PrettifyJSON()
+    set filetype=json
+    execute("%!jq '.'")
+endfunction
+
 " Returns true if paste mode is enabled
 function! HasPaste()
     if &paste
