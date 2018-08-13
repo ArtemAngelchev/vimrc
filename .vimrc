@@ -44,6 +44,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'w0rp/ale'
 Plug 'maralla/completor.vim', {'for': 'python'}
 Plug 'davidhalter/jedi-vim', {'for': 'python'}
+Plug 'Vimjas/vim-python-pep8-indent', {'for': 'python'}
 
 Plug 'tpope/vim-fugitive'
 Plug 'idanarye/vim-merginal'
