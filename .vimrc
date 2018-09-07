@@ -40,6 +40,8 @@ Plug 'tpope/vim-commentary'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'terryma/vim-expand-region'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'Raimondi/delimitMate'
+Plug 'tpope/vim-surround'
 
 Plug 'w0rp/ale'
 Plug 'maralla/completor.vim', {'for': 'python'}

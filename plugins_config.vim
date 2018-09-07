@@ -283,3 +283,11 @@ map gj <Plug>(expand_region_shrink)
 ""               merginal                ""
 "==========================================
 nnoremap <leader>m :Merginal<cr>
+
+"==========================================
+""             delimitMate               ""
+"==========================================
+let g:delimitMate_expand_space = 1
+let g:delimitMate_expand_inside_quotes = 1
+let g:delimitMate_expand_cr = 2
+let g:delimitMate_nesting_quotes = ['"','`']
