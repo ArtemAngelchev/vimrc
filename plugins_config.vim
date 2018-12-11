@@ -291,3 +291,12 @@ let g:delimitMate_expand_space = 1
 let g:delimitMate_expand_inside_quotes = 1
 let g:delimitMate_expand_cr = 2
 let g:delimitMate_nesting_quotes = ['"','`']
+
+"==========================================
+""           vim-autoformat              ""
+"==========================================
+let g:autoformat_autoindent = 0
+let g:autoformat_retab = 0
+let g:autoformat_remove_trailing_spaces = 0
+let g:formatters_python = ['yapf']
+noremap <leader>y :Autoformat<CR>
