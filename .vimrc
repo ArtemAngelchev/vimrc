@@ -48,6 +48,7 @@ Plug 'maralla/completor.vim', {'for': 'python'}
 Plug 'davidhalter/jedi-vim', {'for': 'python'}
 Plug 'Vimjas/vim-python-pep8-indent', {'for': 'python'}
 Plug 'Chiel92/vim-autoformat'
+Plug 'heavenshell/vim-pydocstring', {'for': 'python'}
 
 Plug 'tpope/vim-fugitive'
 Plug 'idanarye/vim-merginal'
@@ -71,4 +72,4 @@ set guioptions-=R
 set guioptions-=l
 set guioptions-=L
 
-set gfn=IBM\ Plex\ Mono:h14,:Hack\ 14,Source\ Code\ Pro\ 12,Bitstream\ Vera\ Sans\ Mono\ 11
+set gfn=Anonymice\ Nerd\ Font\ Complete\ Mono\ 12

@@ -217,7 +217,7 @@ let g:ale_linters = {
 \   'python': ['flake8', 'pylint'],
 \   'go': ['go', 'golint', 'errcheck']
 \}
-let g:ale_python_pylint_options = '--disable=missing-docstring'
+let g:ale_python_pylint_options = '--disable=missing-docstring --unsafe-load-extension=y'
 let g:ale_fixers = {'python': ['isort']}
 noremap <leader>i :ALEFix isort<CR>
 
@@ -300,3 +300,9 @@ let g:autoformat_retab = 0
 let g:autoformat_remove_trailing_spaces = 0
 let g:formatters_python = ['yapf']
 noremap <leader>y :Autoformat<CR>
+
+"==========================================
+""           vim-pydocstring             ""
+"==========================================
+
+nmap <silent> gd <Plug>(pydocstring)
