@@ -42,6 +42,7 @@ Plug 'terryma/vim-expand-region'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-surround'
+Plug 'luochen1990/rainbow'
 
 Plug 'w0rp/ale'
 Plug 'maralla/completor.vim', {'for': 'python'}

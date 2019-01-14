@@ -306,3 +306,8 @@ noremap <leader>y :Autoformat<CR>
 "==========================================
 
 nmap <silent> gd <Plug>(pydocstring)
+
+"==========================================
+""         luochen1990/rainbow           ""
+"==========================================
+let g:rainbow_active = 1
