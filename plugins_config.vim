@@ -58,7 +58,7 @@ set grepprg=/bin/grep\ -nH
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => undotree
+" => nerdtree-git-plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:NERDTreeWinPos = "right"
 let NERDTreeShowHidden=0
@@ -67,9 +67,6 @@ let g:NERDTreeWinSize=35
 map <leader>o :NERDTreeToggle<cr>
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => nerdtree-git-plugin
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "m",
     \ "Staged"    : "s",
@@ -160,7 +157,7 @@ nnoremap <silent> <leader>z :Goyo<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => vim-zenroom2
+" => undotree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <leader>u :UndotreeToggle<cr>
 
@@ -168,11 +165,10 @@ let g:undotree_CustomUndotreeCmd = 'vertical 32 new'
 let g:undotree_CustomDiffpanelCmd = 'belowright 12 new'
 let g:undotree_SetFocusWhenToggle = 1
 let g:undotree_ShortIndicators = 1
-try
-    set undodir=~/.vim/.undodir/
-    set undofile
-catch
-endtry
+
+silent !mkdir ~/.vim/.undodir > /dev/null 2>&1
+set undodir=~/.vim/.undodir/
+set undofile
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

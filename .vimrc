@@ -43,6 +43,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-surround'
 Plug 'luochen1990/rainbow'
+Plug 'editorconfig/editorconfig-vim'
 
 Plug 'w0rp/ale'
 Plug 'maralla/completor.vim', {'for': 'python'}
