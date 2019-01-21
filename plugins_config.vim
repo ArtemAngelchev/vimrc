@@ -215,6 +215,7 @@ let g:ale_linters = {
 \}
 let g:ale_python_pylint_options = '--disable=missing-docstring --unsafe-load-extension=y'
 let g:ale_fixers = {'python': ['isort']}
+let g:ale_python_isort_options = '-lai=2 -m=5 -e=true -tc=true'
 noremap <leader>i :ALEFix isort<CR>
 
 nmap <silent> <leader>q <Plug>(ale_next_wrap)
