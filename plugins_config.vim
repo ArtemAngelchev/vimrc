@@ -308,3 +308,18 @@ nmap <silent> gd <Plug>(pydocstring)
 ""         luochen1990/rainbow           ""
 "==========================================
 let g:rainbow_active = 1
+
+"==========================================
+""          majutsushi/tagbar            ""
+"==========================================
+nmap <leader>t :TagbarToggle<CR>
+
+"==========================================
+""       vim-airline/vim-airline         ""
+"==========================================
+let g:airline_skip_empty_sections = 1
+let g:airline#extensions#virtualenv#enabled = 0
+let g:airline_section_c = airline#section#create_left(['%<%t%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#', '%{tagbar#currenttag(''[%s]'', '''', ''f'')}'])
+let g:airline_section_x = ''
+let g:airline_section_y = ''
+let g:airline_section_z = airline#section#create_right(['%4l/%-4L', '%2c/%-2{strwidth(getline(''.''))}'])

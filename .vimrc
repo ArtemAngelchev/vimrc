@@ -36,6 +36,8 @@ Plug 'mileszs/ack.vim'
 
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-commentary'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'terryma/vim-expand-region'
@@ -44,6 +46,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-surround'
 Plug 'luochen1990/rainbow'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'majutsushi/tagbar'
 
 Plug 'w0rp/ale'
 Plug 'maralla/completor.vim', {'for': 'python'}
