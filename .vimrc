@@ -65,9 +65,9 @@ call plug#end()
 syntax enable
 filetype on
 
-source ~/.vim/vimrc/basic.vim
-source ~/.vim/vimrc/filetypes.vim
-source ~/.vim/vimrc/plugins_config.vim
+source ~/.vim/.vimrc/basic.vim
+source ~/.vim/.vimrc/filetypes.vim
+source ~/.vim/.vimrc/plugins_config.vim
 
 " Don't automatically wrap on load
 set nowrap
