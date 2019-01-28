@@ -48,6 +48,8 @@ Plug 'luochen1990/rainbow'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'majutsushi/tagbar'
 
+Plug 'mattn/emmet-vim'
+
 Plug 'w0rp/ale'
 Plug 'maralla/completor.vim', {'for': 'python'}
 Plug 'davidhalter/jedi-vim', {'for': 'python'}
