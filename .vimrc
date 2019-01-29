@@ -78,5 +78,5 @@ set guioptions-=R
 set guioptions-=l
 set guioptions-=L
 
-set gfn=Anonymice\ Nerd\ Font\ Complete\ Mono\ 12
+set gfn=UbuntuMono\ Nerd\ Font\ Bold\ 11
 
