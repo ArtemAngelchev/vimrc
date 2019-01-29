@@ -295,7 +295,15 @@ let g:delimitMate_nesting_quotes = ['"','`']
 let g:autoformat_autoindent = 0
 let g:autoformat_retab = 0
 let g:autoformat_remove_trailing_spaces = 0
-let g:formatters_python = ['yapf']
+let g:formatdef_custom_yapf =
+            \"'yapf --style=\"{
+            \indent_width:'.shiftwidth().(&textwidth ? ',column_limit:'.&textwidth : '').',
+            \based_on_style:facebook,
+            \blank_line_before_nested_class_or_def:true,
+            \}\"
+            \ -l '.a:firstline.'-'.a:lastline
+            \"
+let g:formatters_python = ['custom_yapf']
 noremap <leader>y :Autoformat<CR>
 
 "==========================================
