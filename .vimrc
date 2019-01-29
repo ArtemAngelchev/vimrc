@@ -53,7 +53,6 @@ Plug 'mattn/emmet-vim'
 Plug 'w0rp/ale'
 Plug 'maralla/completor.vim', {'for': 'python'}
 Plug 'davidhalter/jedi-vim', {'for': 'python'}
-Plug 'Vimjas/vim-python-pep8-indent', {'for': 'python'}
 Plug 'Chiel92/vim-autoformat'
 Plug 'heavenshell/vim-pydocstring', {'for': 'python'}
 
@@ -79,4 +78,5 @@ set guioptions-=R
 set guioptions-=l
 set guioptions-=L
 
-set gfn=Anonymice\ Nerd\ Font\ Complete\ Mono\ 12
+set gfn=UbuntuMono\ Nerd\ Font\ Bold\ 11
+
