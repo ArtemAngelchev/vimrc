@@ -183,7 +183,7 @@ endif
 vnoremap <silent> gv :call VisualSelection('gv', '')<CR>
 
 " Open Ack and put the cursor in the right position
-map <leader>a :Ack
+map <leader>a :Ack 
 
 " When you press <leader>r you can search and replace the selected text
 vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
@@ -213,7 +213,7 @@ let g:ale_linters = {
 \   'python': ['flake8', 'pylint'],
 \   'go': ['go', 'golint', 'errcheck']
 \}
-let g:ale_python_pylint_options = '--disable=missing-docstring --unsafe-load-extension=y'
+let g:ale_python_pylint_options = '--disable=missing-docstring --unsafe-load-any-extension=y'
 let g:ale_fixers = {'python': ['isort']}
 let g:ale_python_isort_options = '-lai=2 -m=5 -e=true -tc=true'
 noremap <leader>i :ALEFix isort<CR>
@@ -238,11 +238,11 @@ nnoremap <silent> <leader>` :GitGutterToggle<cr>
 "==========================================
 " => jedi-vim
 "==========================================
-let g:jedi#completion_enabled = 0
-let g:jedi#auto_vim_configuration = 0
+let g:jedi#completion_enabled = 1
+let g:jedi#auto_vim_configuration = 1
 let g:jedi#show_call_signatures = 1
-let g:jedi#smart_auto_mappings = 0
-let g:jedi#show_call_signatures_delay = 100
+let g:jedi#smart_auto_mappings = 1
+let g:jedi#show_call_signatures_delay = 10
 let g:jedi#usages_command = "<leader>U"
 
 
@@ -251,8 +251,7 @@ import os
 if 'VIRTUAL_ENV' in os.environ:
   project_base_dir = os.environ['VIRTUAL_ENV']
   sys.path.insert(0, project_base_dir)
-  python_binary_path = os.path.join(project_base_dir, 'bin/python')
-  python_binary_path = python_binary_path.replace('\\', '/')
+  python_binary_path = os.path.join(project_base_dir, 'bin', 'python')
   vim.command('let g:completor_python_binary = "{}"'.format(python_binary_path))
 EOF
 
@@ -260,7 +259,8 @@ EOF
 "==========================================
 " => completor.vim
 "==========================================
-" let g:completor_python_binary = '/usr/local/bin/python3.6'
+let g:completor_min_chars = 0
+let g:completor_completion_delay = 10
 inoremap <expr> <c-j> pumvisible() ? "\<c-n>" : "\<C-h>"
 inoremap <expr> <c-k> pumvisible() ? "\<c-p>" : "\<C-k>"
 inoremap <expr> <cr> pumvisible() ? "\<c-y>\<cr>" : "\<cr>"
