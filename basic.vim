@@ -1,10 +1,15 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+syntax enable
+filetype on
+
 " Sets how many lines of history VIM has to remember
 set history=50
 set cursorline cul
-set nocompatible
+
+" Don't automatically wrap on load
+set nowrap
 
 " Enable filetype plugins
 filetype plugin on
@@ -25,7 +30,6 @@ imap <c-z> <esc> :update<cr>i
 
 " Add new line on Enter in normal mode
 map <Enter> o<ESC>
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -76,13 +80,18 @@ highlight ColorColumn ctermbg=233
 set expandtab  " use spaces instead of tabs
 set smarttab   " be smart when using tabs ;)
 " 1 tab == 4 spaces
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
 
-set ai  " auto indent
-set si  " smart indent
+set autoindent  " auto indent
+set smartindent  " smart indent
 
 set foldcolumn=1  " add a bit extra margin to the left
+
+set guioptions-=r
+set guioptions-=R
+set guioptions-=l
+set guioptions-=L
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -110,6 +119,7 @@ set nobackup
 set nowritebackup
 set noswapfile
 
+
 """"""""""""""""""""""""""""""
 " => Visual mode related
 """"""""""""""""""""""""""""""
@@ -134,17 +144,12 @@ map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-h> <c-w>h
 map <c-l> <c-w>l
-set winwidth=90
+set winwidth=85
 set wmw=20
 
 " easier moving of code blocks
 vnoremap < <gv
 vnoremap > >gv
-
-" folding options
-set nofoldenable
-set foldmethod=manual
-set foldlevel=99
 
 " Useful mappings for managing tabs
 noremap <leader>to :tabnew<cr>

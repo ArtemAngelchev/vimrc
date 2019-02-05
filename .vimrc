@@ -20,15 +20,6 @@ Plug 'tmhedberg/SimpylFold'
 
 call plug#end()
 
-syntax enable
-filetype on
-
-" Don't automatically wrap on load
-set nowrap
-
-set guioptions-=r
-set guioptions-=R
-set guioptions-=l
-set guioptions-=L
+source ~/.vim/.vimrc/basic.vim
 
 set gfn=UbuntuMono\ Nerd\ Font\ Bold\ 11

@@ -20,7 +20,12 @@ au FileType python map <buffer> <leader>D ?def
 au FileType python set cindent
 au FileType python set cinkeys-=0#
 au FileType python set indentkeys-=0#
-
+au FileType python set nofoldenable
+au FileType python set foldmethod=manual
+au FileType python set foldlevel=99
+" 1 tab == 4 spaces
+au FileType python set shiftwidth=4
+au FileType python set tabstop=4
 
 """"""""""""""""""""""""""""""
 " => JavaScript section
