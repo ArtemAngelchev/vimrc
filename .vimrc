@@ -16,7 +16,7 @@ filetype off
 """"""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
-Plug 'tmhedberg/SimpylFold'
+Plug 'maxbrunsfeld/vim-yankstack'
 
 call plug#end()
 
