@@ -17,9 +17,31 @@ filetype off
 call plug#begin('~/.vim/plugged')
 
 Plug 'maxbrunsfeld/vim-yankstack'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
+Plug 'mattn/emmet-vim'
+
+Plug 'ryanoasis/vim-devicons'
+Plug 'mbbill/undotree'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'majutsushi/tagbar'
+
+Plug 'junegunn/goyo.vim'
+Plug 'amix/vim-zenroom2'
+Plug 'wesQ3/vim-windowswap'
+
+Plug 'luochen1990/rainbow'
+Plug 'rafi/awesome-vim-colorschemes'
+Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
 source ~/.vim/.vimrc/basic.vim
+source ~/.vim/.vimrc/filetypes.vim
 
 set gfn=UbuntuMono\ Nerd\ Font\ Bold\ 11

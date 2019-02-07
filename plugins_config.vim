@@ -1,65 +1,34 @@
-""""""""""""""""""""""""""""""""
-" => maxbrunsfeld/vim-yankstack
-""""""""""""""""""""""""""""""""
+"=============================================================
+"                   maxbrunsfeld/vim-yankstack               "
+"=============================================================
 let g:yankstack_yank_keys = ['y', 'd']
 nmap <c-p> <Plug>yankstack_substitute_older_paste
 nmap <c-n> <Plug>yankstack_substitute_newer_paste
 
-
-""""""""""""""""""""""""""""""""
-" => jlanzarotta/bufexplorer
-""""""""""""""""""""""""""""""""
-let g:bufExplorerDefaultHelp=0
-let g:bufExplorerShowRelativePath=1
-let g:bufExplorerFindActive=1
-let g:bufExplorerSortBy='name'
-map <leader>b :BufExplorer<cr>
-
-
-""""""""""""""""""""""""""""""
-" => vim-scripts/mru.vim
-""""""""""""""""""""""""""""""
-let MRU_Max_Entries = 400
-map <leader>f :MRU<CR>
-
-
-""""""""""""""""""""""""""""""
-" => ctrlp.vim
-""""""""""""""""""""""""""""""
-let g:ctrlp_working_path_mode = 0
-
-let g:ctrlp_map = '<c-f>'
-map <leader>j :CtrlP<cr>
-map <c-b> :CtrlPBuffer<cr>
-
-let g:ctrlp_max_height = 20
-let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee'
-
-
-""""""""""""""""""""""""""""""
-" => ZenCoding
-""""""""""""""""""""""""""""""
-" Enable all functions in all modes
-let g:user_zen_mode='a'
-
-
- """"""""""""""""""""""""""""""
- " => vim-snipmate (beside <TAB> support <CTRL-j>)
- """"""""""""""""""""""""""""""
+"=============================================================
+"                  garbas/vim-snipmate                       "
+"=============================================================
+" (beside <TAB> support <CTRL-j>)
  ino <c-j> <c-r>=snipMate#TriggerSnippet()<cr>
  snor <c-j> <esc>i<right><c-r>=snipMate#TriggerSnippet()<cr>
 
+"==============================================================
+"                   mbbill/undotree                           "
+"==============================================================
+nnoremap <leader>u :UndotreeToggle<cr>
 
-""""""""""""""""""""""""""""""
-" => Vim grep
-""""""""""""""""""""""""""""""
-let Grep_Skip_Dirs = 'RCS CVS SCCS .svn generated'
-set grepprg=/bin/grep\ -nH
+let g:undotree_CustomUndotreeCmd = 'vertical 32 new'
+let g:undotree_CustomDiffpanelCmd = 'belowright 12 new'
+let g:undotree_SetFocusWhenToggle = 1
+let g:undotree_ShortIndicators = 1
 
+silent !mkdir ~/.vim/.undodir > /dev/null 2>&1
+set undodir=~/.vim/.undodir/
+set undofile
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => nerdtree-git-plugin
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"=============================================================
+"               Xuyuanp/nerdtree-git-plugin                  "
+"=============================================================
 let g:NERDTreeWinPos = "right"
 let NERDTreeShowHidden=0
 let NERDTreeIgnore = ['\.pyc$', '__pycache__']
@@ -80,33 +49,33 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Unknown"   : "?"
     \ }
 
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" " => vim-multiple-cursors
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" let g:multi_cursor_use_default_mapping=0
-"
-" " Default mapping
-" let g:multi_cursor_start_word_key      = '<C-s>'
-" let g:multi_cursor_select_all_word_key = '<A-s>'
-" let g:multi_cursor_start_key           = 'g<C-s>'
-" let g:multi_cursor_select_all_key      = 'g<A-s>'
-" let g:multi_cursor_next_key            = '<C-s>'
-" let g:multi_cursor_prev_key            = '<C-p>'
-" let g:multi_cursor_skip_key            = '<C-x>'
-" let g:multi_cursor_quit_key            = '<Esc>'
-"
-"
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" " => surround.vim config
-" " Annotate strings with gettext
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vmap Si S(i_<esc>f)
-" au FileType mako vmap Si S"i${ _(<esc>2f"a) }<esc>
+"=============================================================
+"                    majutsushi/tagbar                       "
+"=============================================================
+nmap <leader>t :TagbarToggle<CR>
 
+"==============================================================
+"                     junegunn/goyo.vim                       "
+"==============================================================
+let g:goyo_width=100
+let g:goyo_margin_top = 1
+let g:goyo_margin_bottom = 1
+nnoremap <silent> <leader>z :Goyo<cr>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => coloreschemes
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"=============================================================
+"                      amix/vim-zenroom2                     "
+"=============================================================
+" enable all functions in all modes
+let g:user_zen_mode='a'
+
+"=============================================================
+"                    luochen1990/rainbow                     "
+"=============================================================
+let g:rainbow_active = 1
+
+"=============================================================
+"               rafi/awesome-vim-colorschemes                "
+"=============================================================
 " show whitespace
 " MUST be inserted BEFORE the colorscheme command
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
@@ -117,10 +86,9 @@ colorscheme deus
 highlight multiple_cursors_cursor term=reverse cterm=reverse gui=reverse
 highlight link multiple_cursors_visual Visual
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => lightline
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"==============================================================
+"                    itchyny/lightline.vim                    "
+"==============================================================
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ }
@@ -146,30 +114,44 @@ let g:lightline = {
       \ 'subseparator': { 'left': ' ', 'right': ' ' }
       \ }
 
+"==========================================
+""       vim-airline/vim-airline         ""
+"==========================================
+let g:airline_skip_empty_sections = 1
+let g:airline#extensions#virtualenv#enabled = 0
+let g:airline_section_c = airline#section#create_left(['%<%t%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#', '%{tagbar#currenttag(''[%s]'', '''', ''f'')}'])
+let g:airline_section_x = ''
+let g:airline_section_y = ''
+let g:airline_section_z = airline#section#create_right(['%4l/%-4L', '%2c/%-2{strwidth(getline(''.''))}'])
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => vim-zenroom2
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:goyo_width=100
-let g:goyo_margin_top = 1
-let g:goyo_margin_bottom = 1
-nnoremap <silent> <leader>z :Goyo<cr>
+""""""""""""""""""""""""""""""
+" => Vim grep
+""""""""""""""""""""""""""""""
+let Grep_Skip_Dirs = 'RCS CVS SCCS .svn generated'
+set grepprg=/bin/grep\ -nH
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => undotree
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <leader>u :UndotreeToggle<cr>
-
-let g:undotree_CustomUndotreeCmd = 'vertical 32 new'
-let g:undotree_CustomDiffpanelCmd = 'belowright 12 new'
-let g:undotree_SetFocusWhenToggle = 1
-let g:undotree_ShortIndicators = 1
-
-silent !mkdir ~/.vim/.undodir > /dev/null 2>&1
-set undodir=~/.vim/.undodir/
-set undofile
-
+" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" " => vim-multiple-cursors
+" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" let g:multi_cursor_use_default_mapping=0
+"
+" " Default mapping
+" let g:multi_cursor_start_word_key      = '<C-s>'
+" let g:multi_cursor_select_all_word_key = '<A-s>'
+" let g:multi_cursor_start_key           = 'g<C-s>'
+" let g:multi_cursor_select_all_key      = 'g<A-s>'
+" let g:multi_cursor_next_key            = '<C-s>'
+" let g:multi_cursor_prev_key            = '<C-p>'
+" let g:multi_cursor_skip_key            = '<C-x>'
+" let g:multi_cursor_quit_key            = '<Esc>'
+"
+"
+" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" " => surround.vim config
+" " Annotate strings with gettext
+" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vmap Si S(i_<esc>f)
+" au FileType mako vmap Si S"i${ _(<esc>2f"a) }<esc>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => ack.vim
@@ -234,7 +216,6 @@ let g:ale_lint_on_enter = 0
 let g:gitgutter_enabled=0
 nnoremap <silent> <leader>` :GitGutterToggle<cr>
 
-
 "==========================================
 " => jedi-vim
 "==========================================
@@ -255,7 +236,6 @@ if 'VIRTUAL_ENV' in os.environ:
   vim.command('let g:completor_python_binary = "{}"'.format(python_binary_path))
 EOF
 
-
 "==========================================
 " => completor.vim
 "==========================================
@@ -268,13 +248,11 @@ let g:completor_auto_trigger = 0
 inoremap <expr> <c-@> pumvisible() ? "<c-N>" : "<c-r>=completor#do('complete')<cr>"
 let g:completor_whitelist = ['python']
 
-
 "==========================================
 " => vim-expand-region
 "==========================================
 map gk <Plug>(expand_region_expand)
 map gj <Plug>(expand_region_shrink)
-
 
 "==========================================
 ""               merginal                ""
@@ -311,23 +289,3 @@ noremap <leader>y :Autoformat<CR>
 "==========================================
 
 nmap <silent> gd <Plug>(pydocstring)
-
-"==========================================
-""         luochen1990/rainbow           ""
-"==========================================
-let g:rainbow_active = 1
-
-"==========================================
-""          majutsushi/tagbar            ""
-"==========================================
-nmap <leader>t :TagbarToggle<CR>
-
-"==========================================
-""       vim-airline/vim-airline         ""
-"==========================================
-let g:airline_skip_empty_sections = 1
-let g:airline#extensions#virtualenv#enabled = 0
-let g:airline_section_c = airline#section#create_left(['%<%t%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#', '%{tagbar#currenttag(''[%s]'', '''', ''f'')}'])
-let g:airline_section_x = ''
-let g:airline_section_y = ''
-let g:airline_section_z = airline#section#create_right(['%4l/%-4L', '%2c/%-2{strwidth(getline(''.''))}'])
