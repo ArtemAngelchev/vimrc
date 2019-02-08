@@ -32,6 +32,7 @@ Plug 'majutsushi/tagbar'
 Plug 'junegunn/goyo.vim'
 Plug 'amix/vim-zenroom2'
 Plug 'wesQ3/vim-windowswap'
+Plug 'easymotion/vim-easymotion'
 
 Plug 'luochen1990/rainbow'
 Plug 'rafi/awesome-vim-colorschemes'
@@ -39,9 +40,15 @@ Plug 'itchyny/lightline.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
 call plug#end()
 
 source ~/.vim/.vimrc/basic.vim
 source ~/.vim/.vimrc/filetypes.vim
+source ~/.vim/.vimrc/plugins_config.vim
 
 set gfn=UbuntuMono\ Nerd\ Font\ Bold\ 11

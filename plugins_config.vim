@@ -114,9 +114,9 @@ let g:lightline = {
       \ 'subseparator': { 'left': ' ', 'right': ' ' }
       \ }
 
-"==========================================
-""       vim-airline/vim-airline         ""
-"==========================================
+"==============================================================
+"                      vim-airline/vim-airline                "
+"==============================================================
 let g:airline_skip_empty_sections = 1
 let g:airline#extensions#virtualenv#enabled = 0
 let g:airline_section_c = airline#section#create_left(['%<%t%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#', '%{tagbar#currenttag(''[%s]'', '''', ''f'')}'])
@@ -124,28 +124,28 @@ let g:airline_section_x = ''
 let g:airline_section_y = ''
 let g:airline_section_z = airline#section#create_right(['%4l/%-4L', '%2c/%-2{strwidth(getline(''.''))}'])
 
-""""""""""""""""""""""""""""""
-" => Vim grep
-""""""""""""""""""""""""""""""
+"==============================================================
+"                                  grep                       "
+"==============================================================
 let Grep_Skip_Dirs = 'RCS CVS SCCS .svn generated'
 set grepprg=/bin/grep\ -nH
 
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " " => vim-multiple-cursors
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" let g:multi_cursor_use_default_mapping=0
-"
-" " Default mapping
-" let g:multi_cursor_start_word_key      = '<C-s>'
-" let g:multi_cursor_select_all_word_key = '<A-s>'
-" let g:multi_cursor_start_key           = 'g<C-s>'
-" let g:multi_cursor_select_all_key      = 'g<A-s>'
-" let g:multi_cursor_next_key            = '<C-s>'
-" let g:multi_cursor_prev_key            = '<C-p>'
-" let g:multi_cursor_skip_key            = '<C-x>'
-" let g:multi_cursor_quit_key            = '<Esc>'
-"
-"
+let g:multi_cursor_use_default_mapping=0
+
+" Default mapping
+let g:multi_cursor_start_word_key      = '<C-s>'
+let g:multi_cursor_select_all_word_key = '<A-s>'
+let g:multi_cursor_start_key           = 'g<C-s>'
+let g:multi_cursor_select_all_key      = 'g<A-s>'
+let g:multi_cursor_next_key            = '<C-s>'
+let g:multi_cursor_prev_key            = '<C-p>'
+let g:multi_cursor_skip_key            = '<C-x>'
+let g:multi_cursor_quit_key            = '<Esc>'
+
+
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " " => surround.vim config
 " " Annotate strings with gettext
