@@ -33,6 +33,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'amix/vim-zenroom2'
 Plug 'wesQ3/vim-windowswap'
 Plug 'easymotion/vim-easymotion'
+Plug 'terryma/vim-multiple-cursors'
 
 Plug 'luochen1990/rainbow'
 Plug 'rafi/awesome-vim-colorschemes'
@@ -40,11 +41,23 @@ Plug 'itchyny/lightline.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+Plug 'tpope/vim-fugitive'
+Plug 'idanarye/vim-merginal'
+Plug 'jreybert/vimagit'
+Plug 'airblade/vim-gitgutter'
 
+Plug 'mileszs/ack.vim'
+
+Plug 'Raimondi/delimitMate'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+
+Plug 'davidhalter/jedi-vim', {'for': 'python'}
+
+Plug 'heavenshell/vim-pydocstring', {'for': 'python'}
+
+Plug 'vim-syntastic/syntastic'
+Plug 'Chiel92/vim-autoformat'
 call plug#end()
 
 source ~/.vim/.vimrc/basic.vim

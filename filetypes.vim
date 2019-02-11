@@ -87,3 +87,19 @@ endif
 " => Twig section
 """"""""""""""""""""""""""""""
 autocmd BufRead *.twig set syntax=html filetype=html
+
+
+""""""""""""""""""""""""""""""
+" => HTML section
+""""""""""""""""""""""""""""""
+au FileType html set shiftwidth=2
+au FileType html set tabstop=2
+
+
+""""""""""""""""""""""""""""""
+" => CSS section
+""""""""""""""""""""""""""""""
+au FileType css set shiftwidth=2
+au FileType css set tabstop=2
+au FileType css set omnifunc=csscomplete#CompleteCSS
+au FileType css inoremap <c-@> <c-x><c-o>
