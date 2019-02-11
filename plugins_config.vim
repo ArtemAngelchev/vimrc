@@ -269,6 +269,28 @@ inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "<C-k>"
 nmap <silent> gd <Plug>(pydocstring)
 
 "==============================================================
+"                           w0rp/ale                          "
+"==============================================================
+let g:ale_linters = {
+\   'javascript': ['jshint'],
+\   'python': ['flake8', 'pylint'],
+\   'go': ['go', 'golint', 'errcheck']
+\}
+let g:ale_python_pylint_options = '--disable=missing-docstring --unsafe-load-any-extension=y'
+let g:ale_fixers = {'python': ['isort']}
+let g:ale_python_isort_options = '-lai=2 -m=5 -e=true -tc=true'
+noremap <leader>i :ALEFix isort<CR>
+
+nmap <silent> <leader>q <Plug>(ale_next_wrap)
+
+" Disabling highlighting
+let g:ale_set_highlights = 0
+
+" Only run linting when saving the file
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 0
+
+"==============================================================
 "                   Chiel92/vim-autoformat                    "
 "==============================================================
 let g:autoformat_autoindent = 0

@@ -56,7 +56,7 @@ Plug 'davidhalter/jedi-vim', {'for': 'python'}
 
 Plug 'heavenshell/vim-pydocstring', {'for': 'python'}
 
-Plug 'vim-syntastic/syntastic'
+Plug 'w0rp/ale'
 Plug 'Chiel92/vim-autoformat'
 call plug#end()
 
