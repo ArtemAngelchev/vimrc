@@ -52,6 +52,8 @@ Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 
+Plug 'Vimjas/vim-python-pep8-indent', {'for': 'python'}
+
 Plug 'davidhalter/jedi-vim', {'for': 'python'}
 
 Plug 'heavenshell/vim-pydocstring', {'for': 'python'}

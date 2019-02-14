@@ -23,6 +23,7 @@ au FileType python set indentkeys-=0#
 au FileType python set nofoldenable
 au FileType python set foldmethod=manual
 au FileType python set foldlevel=99
+au FileType python setlocal indentkeys-=<:>
 " 1 tab == 4 spaces
 au FileType python set shiftwidth=4
 au FileType python set tabstop=4

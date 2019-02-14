@@ -257,9 +257,10 @@ au FileType python let jedi#show_call_signatures = 1
 au FileType python let jedi#completion_enabled = 1
 au FileType python let jedi#auto_vim_configuration = 1
 au FileType python let jedi#popup_on_dot = 1
-au FileType python let jedi#smart_auto_mappings = 1
+au FileType python let jedi#smart_auto_mappings = 0
 au FileType python let jedi#show_call_signatures_delay = 10
 au FileType python let jedi#usages_command = "<leader>U"
+au FileType python let jedi#use_splits_not_buffers = 1
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "<C-k>"
 
