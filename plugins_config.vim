@@ -249,9 +249,9 @@ au FileType mako vmap Si S"i${ _(<esc>2f"a) }<esc>
 "==============================================================
 "                      davidhalter/jedi-vim                   "
 "==============================================================
+au FileType python let jedi#auto_vim_configuration = 1
 au FileType python let jedi#show_call_signatures = 1
 au FileType python let jedi#completion_enabled = 1
-au FileType python let jedi#auto_vim_configuration = 1
 au FileType python let jedi#popup_on_dot = 1
 au FileType python let jedi#smart_auto_mappings = 0
 au FileType python let jedi#show_call_signatures_delay = 10
@@ -270,12 +270,14 @@ nmap <silent> gd <Plug>(pydocstring)
 "==============================================================
 let g:ale_linters = {
 \   'javascript': ['jshint'],
-\   'python': ['flake8', 'pylint'],
+\   'python': ['flake8', 'pylint', 'mypy'],
 \   'go': ['go', 'golint', 'errcheck']
 \}
 let g:ale_python_pylint_options = '--disable=missing-docstring --unsafe-load-any-extension=y'
 let g:ale_fixers = {'python': ['isort']}
 let g:ale_python_isort_options = '-lai=2 -m=5 -e=true -tc=true'
+let g:ale_python_mypy_ignore_invalid_syntax = 1
+let g:ale_python_mypy_options = '--ignore-missing-imports'
 noremap <leader>i :ALEFix isort<CR>
 
 nmap <silent> <leader>q <Plug>(ale_next_wrap)

@@ -44,7 +44,7 @@ source $VIMRUNTIME/menu.vim
 
 set wildmenu  " turn on the Wild menu
 " Ignore compiled files
-set wildignore=*.o,*~,*.pyc,*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
+set wildignore=*.o,*~,*.pyc,*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store,*/.mypy_cache/*
 
 set ruler        " always show current position
 set cmdheight=2  " height of the command bar
