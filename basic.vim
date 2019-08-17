@@ -137,7 +137,7 @@ map <space> /
 " disable highlight
 map <silent> <leader><cr> :noh<cr>
 
-set clipboard=unnamedplus
+set clipboard=unnamed
 
 " Smart way to move between windows
 map <c-j> <c-w>j

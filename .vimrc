@@ -58,6 +58,8 @@ Plug 'davidhalter/jedi-vim', {'for': 'python'}
 
 Plug 'heavenshell/vim-pydocstring', {'for': 'python'}
 
+Plug 'rust-lang/rust.vim', {'for': 'rust'}
+
 Plug 'w0rp/ale'
 Plug 'Chiel92/vim-autoformat'
 call plug#end()

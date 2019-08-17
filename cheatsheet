@@ -1,3 +1,5 @@
+<leader>p ---- paste next from buffer
+<leader>P ---- paste previouse from buffer
 <leader>e ---- close file
 <leader>E ---- close unsaved file
 <leader>w ---- save file
