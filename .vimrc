@@ -16,12 +16,7 @@ filetype off
 """"""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
-Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
-Plug 'honza/vim-snippets'
-Plug 'mattn/emmet-vim'
 
 Plug 'ryanoasis/vim-devicons'
 Plug 'mbbill/undotree'
@@ -52,20 +47,14 @@ Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 
-Plug 'Vimjas/vim-python-pep8-indent', {'for': 'python'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc-python'
+Plug 'neoclide/coc-json'
 
-Plug 'davidhalter/jedi-vim', {'for': 'python'}
-
-Plug 'heavenshell/vim-pydocstring', {'for': 'python'}
-
-Plug 'rust-lang/rust.vim', {'for': 'rust'}
-
-Plug 'w0rp/ale'
-Plug 'Chiel92/vim-autoformat'
 call plug#end()
 
 source ~/.vim/.vimrc/basic.vim
-source ~/.vim/.vimrc/filetypes.vim
+" source ~/.vim/.vimrc/filetypes.vim
 source ~/.vim/.vimrc/plugins_config.vim
 
 set gfn=UbuntuMono\ Nerd\ Font\ Bold\ 11

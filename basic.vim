@@ -48,7 +48,7 @@ set wildignore=*.o,*~,*.pyc,*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store,*/.mypy_cache/
 
 set ruler        " always show current position
 set cmdheight=2  " height of the command bar
-set hid          " a buffer becomes hidden when it is abandoned
+set hidden       " a buffer becomes hidden when it is abandoned
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
@@ -119,6 +119,10 @@ set nobackup
 set nowritebackup
 set noswapfile
 
+set updatetime=300
+set shortmess+=c
+set signcolumn=yes
+
 
 """"""""""""""""""""""""""""""
 " => Visual mode related
@@ -133,7 +137,7 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 " => Moving around, tabs, windows and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " map <space> to / (search)
-map <space> /
+" map <space> /
 " disable highlight
 map <silent> <leader><cr> :noh<cr>
 
