@@ -136,8 +136,6 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" map <space> to / (search)
-" map <space> /
 " disable highlight
 map <silent> <leader><cr> :noh<cr>
 
@@ -198,7 +196,7 @@ map <leader>ss :setlocal spell!<cr>
 map <leader>sn ]s
 map <leader>sp [s
 map <leader>sa zg
-map <leader>s? z=
+map <leader>sv z=
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

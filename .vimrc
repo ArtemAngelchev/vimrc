@@ -16,45 +16,20 @@ filetype off
 """"""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
-Plug 'MarcWeber/vim-addon-mw-utils'
-
-Plug 'ryanoasis/vim-devicons'
-Plug 'mbbill/undotree'
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'majutsushi/tagbar'
-
-Plug 'junegunn/goyo.vim'
-Plug 'amix/vim-zenroom2'
-Plug 'wesQ3/vim-windowswap'
-Plug 'easymotion/vim-easymotion'
-Plug 'terryma/vim-multiple-cursors'
-
-Plug 'luochen1990/rainbow'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'itchyny/lightline.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 
-Plug 'tpope/vim-fugitive'
-Plug 'idanarye/vim-merginal'
-Plug 'jreybert/vimagit'
-Plug 'airblade/vim-gitgutter'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ryanoasis/vim-devicons'
+Plug 'mbbill/undotree'
+Plug 'majutsushi/tagbar'
 
-Plug 'mileszs/ack.vim'
-
-Plug 'Raimondi/delimitMate'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
+Plug 'wesQ3/vim-windowswap'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc-python'
-Plug 'neoclide/coc-json'
 
 call plug#end()
 
 source ~/.vim/.vimrc/basic.vim
-" source ~/.vim/.vimrc/filetypes.vim
 source ~/.vim/.vimrc/plugins_config.vim
-
-set gfn=UbuntuMono\ Nerd\ Font\ Bold\ 11

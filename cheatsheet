@@ -1,26 +1,59 @@
-<leader>p ---- paste next from buffer
-<leader>P ---- paste previouse from buffer
-<leader>e ---- close file
-<leader>E ---- close unsaved file
-<leader>w ---- save file
-<leader>y ---- format code by yapf
-<c-z> -------- update file
-<leader>z ---- zen mode
-<leader>ww --- swap windows
-<space> ------ seach
-<leader><cr> - disable highlight, :nohl
-<leader>u ---- undo tree
-<leader>U ---- usage
-<leader>a ---- :Ack
-<leader>ss --- turn on spell check
-<leader>sn --- go to the next spell option
-<leader>sp --- go to the previous spell option
-<leader>sa --- add to the spell dict
-<leader>s? --- togle spell options
-gk ----------- expand selected region
-gj ----------- shrink selected region
-<count>ai ---- an indentation level and line above.
-<count>ii ---- inner indentation level (no line above).
-<count>aI ---- an indentation level and lines above/below.
-<count>iI ---- inner indentation level (no lines above/below).
-<c-y>, ------- trigger emmet complition
+Install all coc extensions:
+
+  :CocInstall coc-marketplace coc-highlight coc-json coc-pairs
+
+<leader>o -------- open nerdtree
+<leader>u -------- undo tree
+<leader>t -------- open tagbar
+
+<leader>e -------- close file
+<leader>E -------- close unsaved file
+<leader>w -------- save file
+<c-z> ------------ update file
+
+<leader>ww ------- swap windows
+<leader><cr> ----- turn off highlight (:nohl)
+
+<leader>to ------- create new tab
+<leader>tn ------- next tab
+<leader>tp ------- previous tab
+
+<leader>ss ------- toggle spell check
+<leader>sn ------- go to the next spell warning
+<leader>sp ------- go to the previous spell warning
+<leader>sa ------- add to the spell dict
+<leader>sv ------- toggle spell options
+
+<leader><space> -- format json buffer
+
+[c --------------- next warning (diagnostic)
+]c --------------- next warning (diagnostic)
+
+gd --------------- go to difinition
+gy --------------- go to type difinition
+gi --------------- go to implementation
+gr --------------- go to reference
+K ---------------- show documentation
+<leader>r -------- refactor object
+<leader>f -------- format selected region
+
+<space>s --------- search project for symbols
+<space>o --------- search current buffer for symbols
+<space>y --------- show yank list
+<space>a --------- show coc diagnostic info
+<space>e --------- show coc extensions
+<space>c --------- show coc commands
+<space>p --------- resume coc list
+
+<space>b --------- show bookmarks
+<leader>bb ------- set bookmark
+<leader>ba ------- set bookmark with annotation
+<leader>bn ------- jump to next bookmark
+<leader>bp ------- jump to previous bookmark
+
+
+Add .gitignore file to the project:
+
+  :CocList gitignore
+
+then choose needed template with <TAB>
