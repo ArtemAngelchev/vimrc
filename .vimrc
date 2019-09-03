@@ -24,8 +24,11 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
 Plug 'mbbill/undotree'
 Plug 'majutsushi/tagbar'
+Plug 'mileszs/ack.vim'
 
 Plug 'wesQ3/vim-windowswap'
+
+Plug 'tpope/vim-commentary'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 

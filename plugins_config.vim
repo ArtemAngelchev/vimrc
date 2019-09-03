@@ -82,6 +82,16 @@ set undofile
 nmap <leader>t :TagbarToggle<CR>
 
 
+"=============================================================
+"                    mileszs/ack.vim                         "
+"=============================================================
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep --smart-case'
+endif
+
+map <leader>a :Ack 
+
+
 "==============================================================
 "                  neoclide/coc.nvim                          "
 "==============================================================
@@ -151,6 +161,8 @@ nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
 nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
 " Show commands
 nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+" Show commands
+nnoremap <silent> <space>m  :<C-u>CocList marketplace<cr>
 " Find symbol of current document
 nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
 " Search workspace symbols
