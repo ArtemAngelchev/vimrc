@@ -108,7 +108,12 @@ endfunction
 inoremap <expr> <c-j> pumvisible() ? "\<C-n>" : "\<c-j>"
 inoremap <expr> <c-k> pumvisible() ? "\<C-p>" : "\<c-k>"
 
-inoremap <silent><expr> <NUL> coc#refresh()
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <NUL> coc#refresh()
+endif
+
 
 " Use `[c` and `]c` to navigate diagnostics
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
@@ -137,6 +142,10 @@ nmap <leader>r <Plug>(coc-rename)
 " Remap for format selected region
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
+
+" Sort imports
+nnoremap <silent> <leader>i  :<C-u>CocCommand python.sortImports<cr>
+
 
 augroup mygroup
   autocmd!

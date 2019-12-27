@@ -21,6 +21,7 @@ Plug 'itchyny/lightline.vim'
 
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 Plug 'mbbill/undotree'
 Plug 'majutsushi/tagbar'
@@ -31,6 +32,7 @@ Plug 'wesQ3/vim-windowswap'
 Plug 'tpope/vim-commentary'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'Vimjas/vim-python-pep8-indent', {'for': 'python'}
 
 call plug#end()
 

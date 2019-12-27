@@ -1,3 +1,9 @@
+To see defaults
+  :help defaults.vim
+
+  set nocompatible
+  filetype plugin indent on
+
 Install all coc extensions:
 
   :CocInstall coc-marketplace coc-highlight coc-json coc-pairs
