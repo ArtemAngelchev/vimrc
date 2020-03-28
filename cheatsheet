@@ -51,15 +51,14 @@ K ---------------- show documentation
 <space>c --------- show coc commands
 <space>p --------- resume coc list
 
-<space>b --------- show bookmarks
-<leader>bb ------- set bookmark
-<leader>ba ------- set bookmark with annotation
-<leader>bn ------- jump to next bookmark
-<leader>bp ------- jump to previous bookmark
-
-
 Add .gitignore file to the project:
 
   :CocList gitignore
 
 then choose needed template with <TAB>
+
+Compare one or two files
+
+  1. select first range and issue :Diffthis command
+  2. select second range and issue again :Diffthis
+  3. issue :Diffoff to quit diff

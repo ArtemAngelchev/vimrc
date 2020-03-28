@@ -19,15 +19,18 @@ let g:lightline = {
   \ 'active': {
   \   'left': [
   \     [ 'mode', 'paste' ],
-  \     [ 'ctrlpmark', 'git', 'diagnostic', 'cocstatus', 'filename', 'method' ]
+  \     ['gitbranch', 'readonly', 'ctrlpmark', 'diagnostic', 'cocstatus', 'filename', 'method' ]
   \   ],
   \   'right':[
-  \     [ 'filetype', 'fileencoding', 'lineinfo', 'percent' ],
+  \     ['lineinfo'],
+  \     ['percent'],
+  \     [ 'filetype', 'fileencoding'],
   \     [ 'blame' ]
   \   ],
   \ },
   \ 'component_function': {
   \   'blame': 'LightlineGitBlame',
+  \   'gitbranch': 'gitbranch#name',
   \ }
 \ }
 
@@ -124,6 +127,8 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gs <Plug>(coc-git-chunkinfo)
+nmap <silent> gb <Plug>(coc-git-commit)
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -143,8 +148,8 @@ nmap <leader>r <Plug>(coc-rename)
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
-" Sort imports
-nnoremap <silent> <leader>i  :<C-u>CocCommand python.sortImports<cr>
+" Sort imports for python
+autocmd FileType python nnoremap <silent> <leader>i  :<C-u>CocCommand python.sortImports<cr>
 
 
 augroup mygroup
@@ -155,8 +160,11 @@ augroup mygroup
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
+" toggle snippets
+imap <C-l> <Plug>(coc-snippets-expand)
+
 " Use <c-j> or <c-k> for select selections ranges, needs server support, like: coc-tsserver, coc-python
-nmap <silent> <c-j> <Plug>(coc-range-select)
+" nmap <silent> <c-j> <Plug>(coc-range-select)
 xmap <silent> <c-j> <Plug>(coc-range-select)
 xmap <silent> <c-k> <Plug>(coc-range-select-backword)
 
@@ -195,15 +203,3 @@ nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 "                    coc-highlight                            "
 "==============================================================
 autocmd CursorHold * silent call CocActionAsync('highlight')
-
-
-"==============================================================
-"                voldikss/coc-bookmark                        "
-"==============================================================
-nmap <Leader>bb <Plug>(coc-bookmark-toggle)
-nmap <Leader>ba <Plug>(coc-bookmark-annotate)
-nmap <Leader>bn <Plug>(coc-bookmark-next)
-nmap <Leader>bp <Plug>(coc-bookmark-prev)
-
-" Manage extensions
-nnoremap <silent> <space>b  :<C-u>CocList bookmark<cr>

@@ -2,23 +2,21 @@
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax enable
-filetype on
+filetype plugin indent on
 
 " Sets how many lines of history VIM has to remember
 set history=50
-set cursorline cul
+set cursorline
 
 " Don't automatically wrap on load
 set nowrap
-
-" Enable filetype plugins
-filetype plugin on
-filetype indent on
+set noshowmode
 
 " Set to auto read when a file is changed from the outside
 set autoread
 
 let mapleader = ","
+let g:python3_host_prog = '/Library/Frameworks/Python.framework/Versions/3.8/bin/python3'
 
 noremap <leader>e :q<cr>
 noremap <leader>E :qa!<cr>
@@ -44,7 +42,7 @@ source $VIMRUNTIME/menu.vim
 
 set wildmenu  " turn on the Wild menu
 " Ignore compiled files
-set wildignore=*.o,*~,*.pyc,*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store,*/.mypy_cache/*
+set wildignore=*.o,*~,*.pyc,*/.git/*,*/.hg/*,*/.svn/*,*.DS_Store,*/.mypy_cache/*
 
 set ruler        " always show current position
 set cmdheight=2  " height of the command bar
@@ -92,8 +90,6 @@ set guioptions-=r
 set guioptions-=R
 set guioptions-=l
 set guioptions-=L
-
-set autoread
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -144,7 +140,7 @@ map <silent> <leader><cr> :noh<cr>
 set clipboard=unnamed
 
 " Smart way to move between windows
-map <c-j> <c-w>j
+nnoremap <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-h> <c-w>h
 map <c-l> <c-w>l
@@ -171,8 +167,11 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " => Editing mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Move a line of text using cntr+[jk]
-vmap <c-j> :m'>+<cr>`<my`>mzgv`yo`z
-vmap <c-k> :m'<-2<cr>`>my`<mzgv`yo`z
+if has('macunix')
+  vmap <S-j> :m'>+<CR>gv=gv
+  vmap <S-k> :m-2<CR>gv=gv
+endif
+
 
 " Delete trailing white space on save, useful for some filetypes ;)
 fun! CleanExtraSpaces()
@@ -265,3 +264,13 @@ function! VisualSelection(direction, extra_filter) range
     let @/ = l:pattern
     let @" = l:saved_reg
 endfunction
+
+" Save foldings
+augroup remember_folds
+  autocmd!
+  autocmd BufWinLeave * mkview
+  autocmd BufWinEnter * silent! loadview
+augroup END
+
+nnoremap <silent> <Leader>b :exe "resize +5"<CR>
+nnoremap <silent> <Leader>s :exe "resize -5"<CR>

@@ -18,6 +18,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'itchyny/lightline.vim'
+Plug 'itchyny/vim-gitbranch'
 
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -26,6 +27,11 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'mbbill/undotree'
 Plug 'majutsushi/tagbar'
 Plug 'mileszs/ack.vim'
+
+Plug 'justinmk/vim-sneak'
+
+Plug 'rickhowe/spotdiff.vim'
+Plug 'rickhowe/diffchar.vim'
 
 Plug 'wesQ3/vim-windowswap'
 

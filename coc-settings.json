@@ -1,6 +1,6 @@
 {
   "python.jediEnabled": false,
-  "python.autoUpdateLanguageServer": true,
+  "python.autoUpdateLanguageServer": false,
   "suggest.autoTrigger": "trigger",
   "python.venvPath": "/Users/angart/.virtualenvs/",
   "python.sortImports.path": "/usr/local/bin/isort",
@@ -19,5 +19,6 @@
   "python.linting.flake8Enabled": true,
   "python.linting.mypyEnabled": true,
   "python.linting.mypyPath": "/Library/Frameworks/Python.framework/Versions/3.8/bin/mypy",
-  "git.enableGutters": false
+  "git.enableGutters": true,
+  "git.enableGlobalStatus": false
 }
